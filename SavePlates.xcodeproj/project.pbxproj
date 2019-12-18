@@ -20,6 +20,7 @@
 		3AAB492F23AA9F45003A779A /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB492E23AA9F45003A779A /* NetworkHelper.swift */; };
 		3AAB493223AA9F77003A779A /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB493123AA9F77003A779A /* FirebaseAuthService.swift */; };
 		3AAB493523AA9F9E003A779A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB493423AA9F9E003A779A /* User.swift */; };
+		3AAB493B23AAB647003A779A /* String+Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB493A23AAB647003A779A /* String+Validations.swift */; };
 		64C7F7D0AADC290F8622161B /* Pods_SavePlatesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DD39613BD3CCFE073EC28D /* Pods_SavePlatesTests.framework */; };
 		80B2AFCDA73858C43B387EB3 /* Pods_SavePlates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B89FC702F50A5D867AF31 /* Pods_SavePlates.framework */; };
 		82FF9275CFEC03EB95DDFE57 /* Pods_SavePlates_SavePlatesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18ABAFE17C83011E6AC3CB7E /* Pods_SavePlates_SavePlatesUITests.framework */; };
@@ -67,6 +68,7 @@
 		3AAB492E23AA9F45003A779A /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		3AAB493123AA9F77003A779A /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		3AAB493423AA9F9E003A779A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3AAB493A23AAB647003A779A /* String+Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validations.swift"; sourceTree = "<group>"; };
 		5B75DD6AAEBCA41EAF454561 /* Pods-SavePlates-SavePlatesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlates-SavePlatesUITests.debug.xcconfig"; path = "Target Support Files/Pods-SavePlates-SavePlatesUITests/Pods-SavePlates-SavePlatesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		67F4E9C3AE784FE512C4E2A7 /* Pods-SavePlates-SavePlatesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlates-SavePlatesUITests.release.xcconfig"; path = "Target Support Files/Pods-SavePlates-SavePlatesUITests/Pods-SavePlates-SavePlatesUITests.release.xcconfig"; sourceTree = "<group>"; };
 		72DD39613BD3CCFE073EC28D /* Pods_SavePlatesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SavePlatesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +208,7 @@
 		3AAB492C23AA9F2E003A779A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				3AAB493923AAB62D003A779A /* Extensions */,
 				3AAB493023AA9F67003A779A /* Firebase */,
 				3AAB492D23AA9F36003A779A /* Network */,
 			);
@@ -237,6 +240,14 @@
 				FC3E0B1823AAA6F00051D8A2 /* AppUser.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3AAB493923AAB62D003A779A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3AAB493A23AAB647003A779A /* String+Validations.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AAB493B23AAB647003A779A /* String+Validations.swift in Sources */,
 				3AAB492B23AA9F29003A779A /* LoginViewController.swift in Sources */,
 				3AAB48E623AA900A003A779A /* ViewController.swift in Sources */,
 				3AAB492F23AA9F45003A779A /* NetworkHelper.swift in Sources */,
