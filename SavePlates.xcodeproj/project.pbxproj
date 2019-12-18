@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A4DC23D1EB1B3A5B1E74D13 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		3AAB48E223AA900A003A779A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB48E123AA900A003A779A /* AppDelegate.swift */; };
 		3AAB48E423AA900A003A779A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB48E323AA900A003A779A /* SceneDelegate.swift */; };
 		3AAB48E623AA900A003A779A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB48E523AA900A003A779A /* ViewController.swift */; };
@@ -20,6 +21,13 @@
 		3AAB493223AA9F77003A779A /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB493123AA9F77003A779A /* FirebaseAuthService.swift */; };
 		3AAB493523AA9F9E003A779A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB493423AA9F9E003A779A /* User.swift */; };
 		DF79AF8223AAAE990097267D /* FoodTypePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79AF8123AAAE990097267D /* FoodTypePickerViewController.swift */; };
+		3AAB493B23AAB647003A779A /* String+Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB493A23AAB647003A779A /* String+Validations.swift */; };
+		64C7F7D0AADC290F8622161B /* Pods_SavePlatesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DD39613BD3CCFE073EC28D /* Pods_SavePlatesTests.framework */; };
+		80B2AFCDA73858C43B387EB3 /* Pods_SavePlates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B89FC702F50A5D867AF31 /* Pods_SavePlates.framework */; };
+		82FF9275CFEC03EB95DDFE57 /* Pods_SavePlates_SavePlatesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18ABAFE17C83011E6AC3CB7E /* Pods_SavePlates_SavePlatesUITests.framework */; };
+		FC3E0B1523AAA66D0051D8A2 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E0B1423AAA66D0051D8A2 /* FirebaseStorageService.swift */; };
+		FC3E0B1723AAA69D0051D8A2 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E0B1623AAA69D0051D8A2 /* FirestoreService.swift */; };
+		FC3E0B1923AAA6F00051D8A2 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E0B1823AAA6F00051D8A2 /* AppUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18ABAFE17C83011E6AC3CB7E /* Pods_SavePlates_SavePlatesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SavePlates_SavePlatesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C410A518C39CF0A7A00DEC8 /* Pods-SavePlates.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlates.debug.xcconfig"; path = "Target Support Files/Pods-SavePlates/Pods-SavePlates.debug.xcconfig"; sourceTree = "<group>"; };
+		393B89FC702F50A5D867AF31 /* Pods_SavePlates.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SavePlates.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAB48DE23AA900A003A779A /* SavePlates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SavePlates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAB48E123AA900A003A779A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AAB48E323AA900A003A779A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +70,16 @@
 		3AAB493123AA9F77003A779A /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		3AAB493423AA9F9E003A779A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DF79AF8123AAAE990097267D /* FoodTypePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypePickerViewController.swift; sourceTree = "<group>"; };
+		3AAB493A23AAB647003A779A /* String+Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validations.swift"; sourceTree = "<group>"; };
+		5B75DD6AAEBCA41EAF454561 /* Pods-SavePlates-SavePlatesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlates-SavePlatesUITests.debug.xcconfig"; path = "Target Support Files/Pods-SavePlates-SavePlatesUITests/Pods-SavePlates-SavePlatesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		67F4E9C3AE784FE512C4E2A7 /* Pods-SavePlates-SavePlatesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlates-SavePlatesUITests.release.xcconfig"; path = "Target Support Files/Pods-SavePlates-SavePlatesUITests/Pods-SavePlates-SavePlatesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		72DD39613BD3CCFE073EC28D /* Pods_SavePlatesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SavePlatesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A16DEDF54A58654580B50CAF /* Pods-SavePlatesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlatesTests.debug.xcconfig"; path = "Target Support Files/Pods-SavePlatesTests/Pods-SavePlatesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D37CEB28FAFA09144593C8EF /* Pods-SavePlatesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlatesTests.release.xcconfig"; path = "Target Support Files/Pods-SavePlatesTests/Pods-SavePlatesTests.release.xcconfig"; sourceTree = "<group>"; };
+		F1C9C8CEB53F3362D9A2FFE4 /* Pods-SavePlates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlates.release.xcconfig"; path = "Target Support Files/Pods-SavePlates/Pods-SavePlates.release.xcconfig"; sourceTree = "<group>"; };
+		FC3E0B1423AAA66D0051D8A2 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
+		FC3E0B1623AAA69D0051D8A2 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		FC3E0B1823AAA6F00051D8A2 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80B2AFCDA73858C43B387EB3 /* Pods_SavePlates.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A4DC23D1EB1B3A5B1E74D13 /* (null) in Frameworks */,
+				64C7F7D0AADC290F8622161B /* Pods_SavePlatesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,12 +104,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82FF9275CFEC03EB95DDFE57 /* Pods_SavePlates_SavePlatesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D5525D9B3715E8B3113A7A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1C410A518C39CF0A7A00DEC8 /* Pods-SavePlates.debug.xcconfig */,
+				F1C9C8CEB53F3362D9A2FFE4 /* Pods-SavePlates.release.xcconfig */,
+				5B75DD6AAEBCA41EAF454561 /* Pods-SavePlates-SavePlatesUITests.debug.xcconfig */,
+				67F4E9C3AE784FE512C4E2A7 /* Pods-SavePlates-SavePlatesUITests.release.xcconfig */,
+				A16DEDF54A58654580B50CAF /* Pods-SavePlatesTests.debug.xcconfig */,
+				D37CEB28FAFA09144593C8EF /* Pods-SavePlatesTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		176B3D3A1390C939BB6810CE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				393B89FC702F50A5D867AF31 /* Pods_SavePlates.framework */,
+				18ABAFE17C83011E6AC3CB7E /* Pods_SavePlates_SavePlatesUITests.framework */,
+				72DD39613BD3CCFE073EC28D /* Pods_SavePlatesTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3AAB48D523AA900A003A779A = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +141,8 @@
 				3AAB48F723AA900B003A779A /* SavePlatesTests */,
 				3AAB490223AA900B003A779A /* SavePlatesUITests */,
 				3AAB48DF23AA900A003A779A /* Products */,
+				0D5525D9B3715E8B3113A7A1 /* Pods */,
+				176B3D3A1390C939BB6810CE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,6 +211,7 @@
 		3AAB492C23AA9F2E003A779A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				3AAB493923AAB62D003A779A /* Extensions */,
 				3AAB493023AA9F67003A779A /* Firebase */,
 				3AAB492D23AA9F36003A779A /* Network */,
 			);
@@ -179,6 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				3AAB493123AA9F77003A779A /* FirebaseAuthService.swift */,
+				FC3E0B1423AAA66D0051D8A2 /* FirebaseStorageService.swift */,
+				FC3E0B1623AAA69D0051D8A2 /* FirestoreService.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -187,8 +240,17 @@
 			isa = PBXGroup;
 			children = (
 				3AAB493423AA9F9E003A779A /* User.swift */,
+				FC3E0B1823AAA6F00051D8A2 /* AppUser.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3AAB493923AAB62D003A779A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3AAB493A23AAB647003A779A /* String+Validations.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,9 +260,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AAB490823AA900B003A779A /* Build configuration list for PBXNativeTarget "SavePlates" */;
 			buildPhases = (
+				713458A733D644733C05E6A4 /* [CP] Check Pods Manifest.lock */,
 				3AAB48DA23AA900A003A779A /* Sources */,
 				3AAB48DB23AA900A003A779A /* Frameworks */,
 				3AAB48DC23AA900A003A779A /* Resources */,
+				3864906689F0C7A0DE39B6D8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,6 +279,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AAB490B23AA900B003A779A /* Build configuration list for PBXNativeTarget "SavePlatesTests" */;
 			buildPhases = (
+				61E5D2A0D84F1CED24BE411D /* [CP] Check Pods Manifest.lock */,
 				3AAB48F023AA900B003A779A /* Sources */,
 				3AAB48F123AA900B003A779A /* Frameworks */,
 				3AAB48F223AA900B003A779A /* Resources */,
@@ -233,9 +298,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AAB490E23AA900B003A779A /* Build configuration list for PBXNativeTarget "SavePlatesUITests" */;
 			buildPhases = (
+				0E6601F988B172EC344E932A /* [CP] Check Pods Manifest.lock */,
 				3AAB48FB23AA900B003A779A /* Sources */,
 				3AAB48FC23AA900B003A779A /* Frameworks */,
 				3AAB48FD23AA900B003A779A /* Resources */,
+				9974D6D124E84A3EF0DBB648 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -317,11 +384,115 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0E6601F988B172EC344E932A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SavePlates-SavePlatesUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3864906689F0C7A0DE39B6D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SavePlates/Pods-SavePlates-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SavePlates/Pods-SavePlates-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SavePlates/Pods-SavePlates-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61E5D2A0D84F1CED24BE411D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SavePlatesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		713458A733D644733C05E6A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SavePlates-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9974D6D124E84A3EF0DBB648 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SavePlates-SavePlatesUITests/Pods-SavePlates-SavePlatesUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SavePlates-SavePlatesUITests/Pods-SavePlates-SavePlatesUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SavePlates-SavePlatesUITests/Pods-SavePlates-SavePlatesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3AAB48DA23AA900A003A779A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AAB493B23AAB647003A779A /* String+Validations.swift in Sources */,
 				3AAB492B23AA9F29003A779A /* LoginViewController.swift in Sources */,
 				3AAB48E623AA900A003A779A /* ViewController.swift in Sources */,
 				3AAB492F23AA9F45003A779A /* NetworkHelper.swift in Sources */,
@@ -329,6 +500,9 @@
 				DF79AF8223AAAE990097267D /* FoodTypePickerViewController.swift in Sources */,
 				3AAB493223AA9F77003A779A /* FirebaseAuthService.swift in Sources */,
 				3AAB48E423AA900A003A779A /* SceneDelegate.swift in Sources */,
+				FC3E0B1923AAA6F00051D8A2 /* AppUser.swift in Sources */,
+				FC3E0B1523AAA66D0051D8A2 /* FirebaseStorageService.swift in Sources */,
+				FC3E0B1723AAA69D0051D8A2 /* FirestoreService.swift in Sources */,
 				3AAB493523AA9F9E003A779A /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,6 +674,7 @@
 		};
 		3AAB490923AA900B003A779A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C410A518C39CF0A7A00DEC8 /* Pods-SavePlates.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -518,6 +693,7 @@
 		};
 		3AAB490A23AA900B003A779A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1C9C8CEB53F3362D9A2FFE4 /* Pods-SavePlates.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -536,6 +712,7 @@
 		};
 		3AAB490C23AA900B003A779A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A16DEDF54A58654580B50CAF /* Pods-SavePlatesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -558,6 +735,7 @@
 		};
 		3AAB490D23AA900B003A779A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D37CEB28FAFA09144593C8EF /* Pods-SavePlatesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -580,6 +758,7 @@
 		};
 		3AAB490F23AA900B003A779A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B75DD6AAEBCA41EAF454561 /* Pods-SavePlates-SavePlatesUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -600,6 +779,7 @@
 		};
 		3AAB491023AA900B003A779A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67F4E9C3AE784FE512C4E2A7 /* Pods-SavePlates-SavePlatesUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
