@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A4DC23D1EB1B3A5B1E74D13 /* Pods_SavePlatesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43676CCD478E0B13CB67BDBE /* Pods_SavePlatesTests.framework */; };
 		3AAB48E223AA900A003A779A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB48E123AA900A003A779A /* AppDelegate.swift */; };
 		3AAB48E423AA900A003A779A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB48E323AA900A003A779A /* SceneDelegate.swift */; };
 		3AAB48E623AA900A003A779A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB48E523AA900A003A779A /* ViewController.swift */; };
@@ -15,6 +16,9 @@
 		3AAB48EE23AA900B003A779A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AAB48EC23AA900B003A779A /* LaunchScreen.storyboard */; };
 		3AAB48F923AA900B003A779A /* SavePlatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB48F823AA900B003A779A /* SavePlatesTests.swift */; };
 		3AAB490423AA900B003A779A /* SavePlatesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB490323AA900B003A779A /* SavePlatesUITests.swift */; };
+		70E2950E3237B3FA537474BF /* Pods_SavePlates_SavePlatesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04F1C959A47C073E74C07A5 /* Pods_SavePlates_SavePlatesUITests.framework */; };
+		F045519B01A01543C2E360E0 /* Pods_SavePlates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B89FC702F50A5D867AF31 /* Pods_SavePlates.framework */; };
+		FC3E0B0D23AA96070051D8A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC3E0B0C23AA96070051D8A2 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		393B89FC702F50A5D867AF31 /* Pods_SavePlates.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SavePlates.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAB48DE23AA900A003A779A /* SavePlates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SavePlates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAB48E123AA900A003A779A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AAB48E323AA900A003A779A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +54,15 @@
 		3AAB48FF23AA900B003A779A /* SavePlatesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SavePlatesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAB490323AA900B003A779A /* SavePlatesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePlatesUITests.swift; sourceTree = "<group>"; };
 		3AAB490523AA900B003A779A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		43676CCD478E0B13CB67BDBE /* Pods_SavePlatesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SavePlatesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F2E8F2E57A4D7D970ED2E8D /* Pods-SavePlates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlates.release.xcconfig"; path = "Target Support Files/Pods-SavePlates/Pods-SavePlates.release.xcconfig"; sourceTree = "<group>"; };
+		7886DDE407C08E89315CE7CD /* Pods-SavePlatesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlatesTests.debug.xcconfig"; path = "Target Support Files/Pods-SavePlatesTests/Pods-SavePlatesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B04F1C959A47C073E74C07A5 /* Pods_SavePlates_SavePlatesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SavePlates_SavePlatesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD6DE36217AB54EA2CCBF24F /* Pods-SavePlatesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlatesTests.release.xcconfig"; path = "Target Support Files/Pods-SavePlatesTests/Pods-SavePlatesTests.release.xcconfig"; sourceTree = "<group>"; };
+		C77073491FCCB35A02C6FCBF /* Pods-SavePlates.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlates.debug.xcconfig"; path = "Target Support Files/Pods-SavePlates/Pods-SavePlates.debug.xcconfig"; sourceTree = "<group>"; };
+		E1888545BDBCE4CB83641551 /* Pods-SavePlates-SavePlatesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlates-SavePlatesUITests.debug.xcconfig"; path = "Target Support Files/Pods-SavePlates-SavePlatesUITests/Pods-SavePlates-SavePlatesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E3CF5014A341FD50BFA19285 /* Pods-SavePlates-SavePlatesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlates-SavePlatesUITests.release.xcconfig"; path = "Target Support Files/Pods-SavePlates-SavePlatesUITests/Pods-SavePlates-SavePlatesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FC3E0B0C23AA96070051D8A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SavePlatesTests/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F045519B01A01543C2E360E0 /* Pods_SavePlates.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A4DC23D1EB1B3A5B1E74D13 /* Pods_SavePlatesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +86,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70E2950E3237B3FA537474BF /* Pods_SavePlates_SavePlatesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D5525D9B3715E8B3113A7A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C77073491FCCB35A02C6FCBF /* Pods-SavePlates.debug.xcconfig */,
+				4F2E8F2E57A4D7D970ED2E8D /* Pods-SavePlates.release.xcconfig */,
+				E1888545BDBCE4CB83641551 /* Pods-SavePlates-SavePlatesUITests.debug.xcconfig */,
+				E3CF5014A341FD50BFA19285 /* Pods-SavePlates-SavePlatesUITests.release.xcconfig */,
+				7886DDE407C08E89315CE7CD /* Pods-SavePlatesTests.debug.xcconfig */,
+				BD6DE36217AB54EA2CCBF24F /* Pods-SavePlatesTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		176B3D3A1390C939BB6810CE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				393B89FC702F50A5D867AF31 /* Pods_SavePlates.framework */,
+				B04F1C959A47C073E74C07A5 /* Pods_SavePlates_SavePlatesUITests.framework */,
+				43676CCD478E0B13CB67BDBE /* Pods_SavePlatesTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3AAB48D523AA900A003A779A = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +124,8 @@
 				3AAB48F723AA900B003A779A /* SavePlatesTests */,
 				3AAB490223AA900B003A779A /* SavePlatesUITests */,
 				3AAB48DF23AA900A003A779A /* Products */,
+				0D5525D9B3715E8B3113A7A1 /* Pods */,
+				176B3D3A1390C939BB6810CE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +149,7 @@
 				3AAB48E723AA900A003A779A /* Main.storyboard */,
 				3AAB48EA23AA900B003A779A /* Assets.xcassets */,
 				3AAB48EF23AA900B003A779A /* Info.plist */,
+				FC3E0B0C23AA96070051D8A2 /* GoogleService-Info.plist */,
 			);
 			path = SavePlates;
 			sourceTree = "<group>";
@@ -199,9 +243,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AAB490823AA900B003A779A /* Build configuration list for PBXNativeTarget "SavePlates" */;
 			buildPhases = (
+				713458A733D644733C05E6A4 /* [CP] Check Pods Manifest.lock */,
 				3AAB48DA23AA900A003A779A /* Sources */,
 				3AAB48DB23AA900A003A779A /* Frameworks */,
 				3AAB48DC23AA900A003A779A /* Resources */,
+				3864906689F0C7A0DE39B6D8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -216,6 +262,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AAB490B23AA900B003A779A /* Build configuration list for PBXNativeTarget "SavePlatesTests" */;
 			buildPhases = (
+				61E5D2A0D84F1CED24BE411D /* [CP] Check Pods Manifest.lock */,
 				3AAB48F023AA900B003A779A /* Sources */,
 				3AAB48F123AA900B003A779A /* Frameworks */,
 				3AAB48F223AA900B003A779A /* Resources */,
@@ -234,9 +281,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AAB490E23AA900B003A779A /* Build configuration list for PBXNativeTarget "SavePlatesUITests" */;
 			buildPhases = (
+				0E6601F988B172EC344E932A /* [CP] Check Pods Manifest.lock */,
 				3AAB48FB23AA900B003A779A /* Sources */,
 				3AAB48FC23AA900B003A779A /* Frameworks */,
 				3AAB48FD23AA900B003A779A /* Resources */,
+				9974D6D124E84A3EF0DBB648 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,6 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC3E0B0D23AA96070051D8A2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +367,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E6601F988B172EC344E932A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SavePlates-SavePlatesUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3864906689F0C7A0DE39B6D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SavePlates/Pods-SavePlates-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SavePlates/Pods-SavePlates-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SavePlates/Pods-SavePlates-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61E5D2A0D84F1CED24BE411D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SavePlatesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		713458A733D644733C05E6A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SavePlates-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9974D6D124E84A3EF0DBB648 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SavePlates-SavePlatesUITests/Pods-SavePlates-SavePlatesUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SavePlates-SavePlatesUITests/Pods-SavePlates-SavePlatesUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SavePlates-SavePlatesUITests/Pods-SavePlates-SavePlatesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3AAB48DA23AA900A003A779A /* Sources */ = {
@@ -496,6 +649,7 @@
 		};
 		3AAB490923AA900B003A779A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C77073491FCCB35A02C6FCBF /* Pods-SavePlates.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -514,6 +668,7 @@
 		};
 		3AAB490A23AA900B003A779A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F2E8F2E57A4D7D970ED2E8D /* Pods-SavePlates.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -532,6 +687,7 @@
 		};
 		3AAB490C23AA900B003A779A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7886DDE407C08E89315CE7CD /* Pods-SavePlatesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -554,6 +710,7 @@
 		};
 		3AAB490D23AA900B003A779A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD6DE36217AB54EA2CCBF24F /* Pods-SavePlatesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -576,6 +733,7 @@
 		};
 		3AAB490F23AA900B003A779A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1888545BDBCE4CB83641551 /* Pods-SavePlates-SavePlatesUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -596,6 +754,7 @@
 		};
 		3AAB491023AA900B003A779A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3CF5014A341FD50BFA19285 /* Pods-SavePlates-SavePlatesUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
