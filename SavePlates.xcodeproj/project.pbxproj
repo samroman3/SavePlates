@@ -26,6 +26,9 @@
 		FC3E0B1523AAA66D0051D8A2 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E0B1423AAA66D0051D8A2 /* FirebaseStorageService.swift */; };
 		FC3E0B1723AAA69D0051D8A2 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E0B1623AAA69D0051D8A2 /* FirestoreService.swift */; };
 		FC3E0B1923AAA6F00051D8A2 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E0B1823AAA6F00051D8A2 /* AppUser.swift */; };
+		FC3E0B1B23AAADF50051D8A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC3E0B1A23AAADF50051D8A2 /* GoogleService-Info.plist */; };
+		FC3E0B1D23AAB1A40051D8A2 /* Plate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E0B1C23AAB1A40051D8A2 /* Plate.swift */; };
+		FC3E0B1F23AAB2290051D8A2 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3E0B1E23AAB2290051D8A2 /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,9 @@
 		FC3E0B1423AAA66D0051D8A2 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
 		FC3E0B1623AAA69D0051D8A2 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		FC3E0B1823AAA6F00051D8A2 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		FC3E0B1A23AAADF50051D8A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FC3E0B1C23AAB1A40051D8A2 /* Plate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plate.swift; sourceTree = "<group>"; };
+		FC3E0B1E23AAB2290051D8A2 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +168,7 @@
 				3AAB48E723AA900A003A779A /* Main.storyboard */,
 				3AAB48EA23AA900B003A779A /* Assets.xcassets */,
 				3AAB48EF23AA900B003A779A /* Info.plist */,
+				FC3E0B1A23AAADF50051D8A2 /* GoogleService-Info.plist */,
 			);
 			path = SavePlates;
 			sourceTree = "<group>";
@@ -235,6 +242,8 @@
 			children = (
 				3AAB493423AA9F9E003A779A /* User.swift */,
 				FC3E0B1823AAA6F00051D8A2 /* AppUser.swift */,
+				FC3E0B1C23AAB1A40051D8A2 /* Plate.swift */,
+				FC3E0B1E23AAB2290051D8A2 /* Restaurant.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -349,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AAB48EE23AA900B003A779A /* LaunchScreen.storyboard in Resources */,
+				FC3E0B1B23AAADF50051D8A2 /* GoogleService-Info.plist in Resources */,
 				3AAB48EB23AA900B003A779A /* Assets.xcassets in Resources */,
 				3AAB48E923AA900A003A779A /* Main.storyboard in Resources */,
 			);
@@ -480,11 +490,13 @@
 			files = (
 				3AAB492B23AA9F29003A779A /* LoginViewController.swift in Sources */,
 				3AAB48E623AA900A003A779A /* ViewController.swift in Sources */,
+				FC3E0B1D23AAB1A40051D8A2 /* Plate.swift in Sources */,
 				3AAB492F23AA9F45003A779A /* NetworkHelper.swift in Sources */,
 				3AAB48E223AA900A003A779A /* AppDelegate.swift in Sources */,
 				3AAB493223AA9F77003A779A /* FirebaseAuthService.swift in Sources */,
 				3AAB48E423AA900A003A779A /* SceneDelegate.swift in Sources */,
 				FC3E0B1923AAA6F00051D8A2 /* AppUser.swift in Sources */,
+				FC3E0B1F23AAB2290051D8A2 /* Restaurant.swift in Sources */,
 				FC3E0B1523AAA66D0051D8A2 /* FirebaseStorageService.swift in Sources */,
 				FC3E0B1723AAA69D0051D8A2 /* FirestoreService.swift in Sources */,
 				3AAB493523AA9F9E003A779A /* User.swift in Sources */,
