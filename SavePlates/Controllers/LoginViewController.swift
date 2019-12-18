@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont(name: "Trebuchet MS", size: 100)
-        let attributedTitle = NSMutableAttributedString(string: "SavePlates", attributes: [NSAttributedString.Key.font: UIFont(name: "Trebuchet MS", size: 80)!, NSAttributedString.Key.foregroundColor: UIColor.black])
+        let attributedTitle = NSMutableAttributedString(string: "SavePlates", attributes: [NSAttributedString.Key.font: UIFont(name: "Trebuchet MS", size: 80)!, NSAttributedString.Key.foregroundColor: UIColor.systemBlue])
         label.attributedText = attributedTitle
         label.backgroundColor = .clear
         label.textAlignment = .center
@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
         textField.autocorrectionType = .no
         textField.textAlignment = .left
         textField.layer.cornerRadius = 15
-        textField.backgroundColor = .clear
+        textField.backgroundColor = .white
         textField.textColor = .black
         textField.borderStyle = .roundedRect
         textField.addTarget(self, action: #selector(validateFields), for: .editingChanged)
@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
         textField.textAlignment = .left
         textField.isSecureTextEntry = true
         textField.layer.cornerRadius = 15
-        textField.backgroundColor = .clear
+        textField.backgroundColor = .white
         textField.textColor = .black
         textField.borderStyle = .roundedRect
         textField.addTarget(self, action: #selector(validateFields), for: .editingChanged)
@@ -76,7 +76,7 @@ class LoginViewController: UIViewController {
         button.setTitle("Login", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = button.titleLabel?.font.withSize(34)
-        button.backgroundColor = .cyan
+        button.backgroundColor = .systemBlue
         button.addTarget(self, action: #selector(tryLogin), for: .touchUpInside)
         button.isEnabled = false
         return button
@@ -90,7 +90,7 @@ class LoginViewController: UIViewController {
                                                             NSAttributedString.Key.foregroundColor: UIColor.darkGray])
         attributedTitle.append(NSAttributedString(string: "Sign Up",
                                                   attributes: [NSAttributedString.Key.font: UIFont(name: "Verdana-Bold", size: 14)!,
-                                                               NSAttributedString.Key.foregroundColor: UIColor.cyan ]))
+                                                               NSAttributedString.Key.foregroundColor: UIColor.systemBlue ]))
         button.setAttributedTitle(attributedTitle, for: .normal)
         button.addTarget(self, action: #selector(showSignUp), for: .touchUpInside)
         return button
@@ -129,8 +129,8 @@ class LoginViewController: UIViewController {
             return
         }
         loginButton.isEnabled = true
-        emailIcon.tintColor = .cyan
-        passwordIcon.tintColor = .cyan
+        emailIcon.tintColor = .systemBlue
+        passwordIcon.tintColor = .systemBlue
     }
 
 
@@ -170,24 +170,19 @@ class LoginViewController: UIViewController {
                 let sceneDelegate = windowScene.delegate as? SceneDelegate, let window = sceneDelegate.window
                 else { return }
             print("login successful")
-//            UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromBottom, animations: {
-//                              if FirebaseAuthService.manager.currentUser?.photoURL != nil {
-//                                window.rootViewController = MainTabBarViewController()
-//                              } else {
-//                                  window.rootViewController = {
-//                                      let profileSetupVC = ProfileEditViewController()
-//                                      profileSetupVC.settingFromLogin = true
-//                                      return profileSetupVC
-//                                  }()
-//                              }
-//                          }, completion: nil)
+            UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromBottom, animations: {
+                                  window.rootViewController = {
+                                      let profileSetupVC = FoodTypePickerViewController()
+                                      return profileSetupVC
+                                  }()
+                              }, completion: nil)
         }
     }
 
     @objc func showSignUp() {
-//        let signupVC = SignUpViewController()
-//        signupVC.modalPresentationStyle = .currentContext
-//        present(signupVC, animated: true, completion: nil)
+        let signupVC = SignUpViewController()
+        signupVC.modalPresentationStyle = .currentContext
+        present(signupVC, animated: true, completion: nil)
     }
 
 
