@@ -36,9 +36,10 @@ class PlateDetailViewController: UIViewController {
         let label = UILabel()
         label.text = "Price: \n $3.50"
         label.textAlignment = .center
-        
+        label.numberOfLines = 0
         return label
     }()
+    
     
     lazy var pickUpTime: UILabel = {
         let label = UILabel()
@@ -53,19 +54,25 @@ class PlateDetailViewController: UIViewController {
         let label = UILabel()
         return label
     }()
+
     
     lazy var claimButton: UIButton = {
-        let button = UIButton()
-        button.titleLabel?.text = "Claim Plate"
-        return button
-    }()
-    
+           let button = UIButton()
+           button.setTitle("Claim", for: .normal)
+           button.setTitleColor(.white, for: .normal)
+           button.titleLabel?.font = button.titleLabel?.font.withSize(34)
+           button.backgroundColor = .systemPink
+//           button.addTarget(self, action: #selector(tryLogin), for: .touchUpInside)
+           button.isEnabled = false
+           return button
+       }()
     
     //MARK: Constraint Methods
     private func setUpVC(){
         constrainPlateImage()
         constrainDescription()
         constrainPriceAndPickUp()
+        constrainClaimButton()
     }
     
     
@@ -87,6 +94,10 @@ class PlateDetailViewController: UIViewController {
             plateDescription.widthAnchor.constraint(equalToConstant: view.frame.width - 30), plateDescription.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
     }
     
+    private func constrainRestaurantName(){
+        
+    }
+    
     private func constrainPriceAndPickUp(){
         let stack = UIStackView(arrangedSubviews: [priceLabel, pickUpTime])
         view.addSubview(stack)
@@ -98,6 +109,15 @@ class PlateDetailViewController: UIViewController {
             stack.topAnchor.constraint(equalTo: plateDescription.bottomAnchor, constant: 35),
             stack.widthAnchor.constraint(equalToConstant: view.frame.width - 50),
             stack.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
+    }
+    
+    private func constrainClaimButton(){
+        view.addSubview(claimButton)
+        claimButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            claimButton.widthAnchor.constraint(equalToConstant: view.frame.width - 40),
+            claimButton.heightAnchor.constraint(equalToConstant: 60), claimButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            claimButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 30)])
     }
     
     //MARK: LifeCycle Methods

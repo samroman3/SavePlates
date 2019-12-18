@@ -163,31 +163,27 @@ class LoginViewController: UIViewController {
         switch result {
         case .failure(let error):
             print(error)
-                            self.showAlert(with: "Error", and: "Could not log in. Error: \(error)")
+        self.showAlert(with: "Error", and: "Could not log in. Error: \(error)")
         
         case .success:
             guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                 let sceneDelegate = windowScene.delegate as? SceneDelegate, let window = sceneDelegate.window
                 else { return }
             print("login successful")
-//            UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromBottom, animations: {
-//                              if FirebaseAuthService.manager.currentUser?.photoURL != nil {
-//                                window.rootViewController = MainTabBarViewController()
-//                              } else {
-//                                  window.rootViewController = {
-//                                      let profileSetupVC = ProfileEditViewController()
-//                                      profileSetupVC.settingFromLogin = true
-//                                      return profileSetupVC
-//                                  }()
-//                              }
-//                          }, completion: nil)
+            UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromBottom, animations: {
+                           window.rootViewController = {
+                                      let mainvc = SearchPlatesViewController()
+                                      return mainvc
+                                  }()
+                              
+                          }, completion: nil)
         }
     }
 
     @objc func showSignUp() {
-//        let signupVC = SignUpViewController()
-//        signupVC.modalPresentationStyle = .currentContext
-//        present(signupVC, animated: true, completion: nil)
+        let signupVC = SignUpViewController()
+        signupVC.modalPresentationStyle = .currentContext
+        present(signupVC, animated: true, completion: nil)
     }
 
 
