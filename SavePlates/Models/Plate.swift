@@ -12,6 +12,7 @@ import FirebaseFirestore
 struct Plate {
     let description: String
     let imageURL: String
+    let restaurant: String
     let restaurantID: String
     let plateID: String
     let userID: String
@@ -23,9 +24,10 @@ struct Plate {
     
     //    MARK: - Init
     
-    init(description: String, imageURL: String, restaurantID: String, plateID: String, userID: String, dateCreated: Date? = nil, originalPrice: Double, discount: Double, tags: [String]) {
+    init(description: String, imageURL: String, restaurant: String, restaurantID: String, plateID: String, userID: String, dateCreated: Date? = nil, originalPrice: Double, discount: Double, tags: [String]) {
         self.description = description
         self.imageURL = imageURL
+        self.restaurant = restaurant
         self.restaurantID = restaurantID
         self.plateID = plateID
         self.userID = userID
@@ -38,6 +40,7 @@ struct Plate {
     init?(from dict: [String:Any], id: String) {
         guard let description = dict["description"] as? String,
             let imageURL = dict["imageURL"] as? String,
+            let restaurant = dict["restaurant"] as? String,
             let restaurantID = dict["restaurantID"] as? String,
             let plateID = dict["plateID"] as? String,
             let userID = dict["userID"] as? String,
@@ -48,6 +51,7 @@ struct Plate {
         
         self.description = description
         self.imageURL = imageURL
+        self.restaurant = restaurant
         self.restaurantID = restaurantID
         self.plateID = plateID
         self.userID = userID
@@ -57,6 +61,6 @@ struct Plate {
         self.tags = tags
     }
     var fieldsDict: [String: Any] {
-        return ["description": self.description, "imageURL": self.imageURL, "restaurantID": self.restaurantID, "plateID": self.plateID, "userID": self.userID, "originalPrice": self.originalPrice, "discount": self.discount, "tags": self.tags]
+        return ["description": self.description, "imageURL": self.imageURL, "restaurant": self.restaurant, "restaurantID": self.restaurantID, "plateID": self.plateID, "userID": self.userID, "originalPrice": self.originalPrice, "discount": self.discount, "tags": self.tags]
     }
 }
