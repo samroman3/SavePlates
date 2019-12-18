@@ -20,6 +20,7 @@
 		3AAB492F23AA9F45003A779A /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB492E23AA9F45003A779A /* NetworkHelper.swift */; };
 		3AAB493223AA9F77003A779A /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB493123AA9F77003A779A /* FirebaseAuthService.swift */; };
 		3AAB493523AA9F9E003A779A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB493423AA9F9E003A779A /* User.swift */; };
+		DF79AF8223AAAE990097267D /* FoodTypePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79AF8123AAAE990097267D /* FoodTypePickerViewController.swift */; };
 		3AAB493B23AAB647003A779A /* String+Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB493A23AAB647003A779A /* String+Validations.swift */; };
 		64C7F7D0AADC290F8622161B /* Pods_SavePlatesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DD39613BD3CCFE073EC28D /* Pods_SavePlatesTests.framework */; };
 		80B2AFCDA73858C43B387EB3 /* Pods_SavePlates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B89FC702F50A5D867AF31 /* Pods_SavePlates.framework */; };
@@ -68,6 +69,7 @@
 		3AAB492E23AA9F45003A779A /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		3AAB493123AA9F77003A779A /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		3AAB493423AA9F9E003A779A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DF79AF8123AAAE990097267D /* FoodTypePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypePickerViewController.swift; sourceTree = "<group>"; };
 		3AAB493A23AAB647003A779A /* String+Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validations.swift"; sourceTree = "<group>"; };
 		5B75DD6AAEBCA41EAF454561 /* Pods-SavePlates-SavePlatesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlates-SavePlatesUITests.debug.xcconfig"; path = "Target Support Files/Pods-SavePlates-SavePlatesUITests/Pods-SavePlates-SavePlatesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		67F4E9C3AE784FE512C4E2A7 /* Pods-SavePlates-SavePlatesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlates-SavePlatesUITests.release.xcconfig"; path = "Target Support Files/Pods-SavePlates-SavePlatesUITests/Pods-SavePlates-SavePlatesUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				3AAB492A23AA9F29003A779A /* LoginViewController.swift */,
+				DF79AF8123AAAE990097267D /* FoodTypePickerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				3AAB48E623AA900A003A779A /* ViewController.swift in Sources */,
 				3AAB492F23AA9F45003A779A /* NetworkHelper.swift in Sources */,
 				3AAB48E223AA900A003A779A /* AppDelegate.swift in Sources */,
+				DF79AF8223AAAE990097267D /* FoodTypePickerViewController.swift in Sources */,
 				3AAB493223AA9F77003A779A /* FirebaseAuthService.swift in Sources */,
 				3AAB48E423AA900A003A779A /* SceneDelegate.swift in Sources */,
 				FC3E0B1923AAA6F00051D8A2 /* AppUser.swift in Sources */,
