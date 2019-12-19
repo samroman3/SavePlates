@@ -9,22 +9,52 @@
 import UIKit
 
 class PlatesHistoryViewController: UIViewController {
-
+  
+ lazy var historyList: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(PlatesCell.self, forCellReuseIdentifier: "PlatesHistoryCell")
+        return tableView
+    }()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-
+      constraintPlatesList()
         // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
+  private func constraintPlatesList() {
+         view.addSubview(historyList)
+         historyList.translatesAutoresizingMaskIntoConstraints = false
+         NSLayoutConstraint.activate([
+             historyList.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+             historyList.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+             historyList.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+             historyList.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)])
+     }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+}
 
+extension PlatesHistoryViewController: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 1
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    guard let cell = historyList.dequeueReusableCell(withIdentifier: "PlatesHistoryCell", for: indexPath) as? PlatesCell else {return UITableViewCell()}
+    
+    cell.cellImage.image = UIImage(named: "NoImage")
+    cell.businessName.text = "Business Name"
+    cell.foodItem.text = "Food Item"
+    cell.itemPrice.text = "Item Price $$$"
+    return cell
+  }
+  
+  
+}
+
+extension PlatesHistoryViewController: UITableViewDelegate {
+  
 }

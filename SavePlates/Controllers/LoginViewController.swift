@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont(name: "Trebuchet MS", size: 100)
-        let attributedTitle = NSMutableAttributedString(string: "SavePlates", attributes: [NSAttributedString.Key.font: UIFont(name: "Trebuchet MS", size: 80)!, NSAttributedString.Key.foregroundColor: UIColor.black])
+        let attributedTitle = NSMutableAttributedString(string: "SavePlates", attributes: [NSAttributedString.Key.font: UIFont(name: "Trebuchet MS", size: 60)!, NSAttributedString.Key.foregroundColor: UIColor.black])
         label.attributedText = attributedTitle
         label.backgroundColor = .clear
         label.textAlignment = .center
