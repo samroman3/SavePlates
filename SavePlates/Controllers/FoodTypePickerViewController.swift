@@ -11,7 +11,6 @@ import UIKit
 class FoodTypePickerViewController: UIViewController {
     
   
-  
     //MARK: Internal Properties
     var pickerData = ["Chicken", "Beef", "Vegan", "Baked Goods"]
     var keywordHolder = "ChickenAgain"

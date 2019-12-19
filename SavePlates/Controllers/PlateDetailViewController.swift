@@ -11,14 +11,29 @@ import UIKit
 class PlateDetailViewController: UIViewController {
     
     //MARK: Private Properties
-    private var plate: Plate?
+    var plate: Plate? {
+        didSet {
+//            setLabels()
+            FirebaseStorageService.manager.getImage(url: plate!.imageURL) { (result) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                        self.plateImage.image = UIImage(named: "NoImage")
+                    case .success(let image):
+                        self.plateImage.image = image
+                    }
+                }
+            }
+        }
+    }
     
     
     
     //MARK: UI Elements
     lazy var plateDescription: UILabel = {
         let tv = UILabel()
-        tv.text = "This is a plate of food you can claim. Tap the claim button below to claim it. Pick it up and enjoy. You're welcome."
+        tv.text = "This is a plate of \(plate!.description) you can claim. Tap the claim button below to claim it. Pick it up and enjoy. You're welcome."
         tv.numberOfLines = 0
         tv.textAlignment = .center
         tv.textColor = .black
@@ -29,6 +44,7 @@ class PlateDetailViewController: UIViewController {
     lazy var plateImage: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .gray
+        image.contentMode = .scaleToFill
         return image
     }()
     
@@ -84,14 +100,17 @@ class PlateDetailViewController: UIViewController {
         constrainClaimButton()
     }
     
+    private func setLabels(){
+        plateDescription.text = "\(plateDescription.text!) \n \(plate!.description)"
+    }
     
     private func constrainPlateImage(){
         view.addSubview(plateImage)
         plateImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             plateImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            plateImage.widthAnchor.constraint(equalToConstant: view.frame.width - 20),
-            plateImage.heightAnchor.constraint(equalToConstant:  view.frame.width - 20),
+            plateImage.widthAnchor.constraint(equalToConstant: view.frame.width - 30),
+            plateImage.heightAnchor.constraint(equalToConstant:  view.frame.width - 30),
             plateImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
     }
     
