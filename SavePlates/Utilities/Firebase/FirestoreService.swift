@@ -123,22 +123,22 @@ class FirestoreService {
 //        }
 //    }
 //
-//    func getEvents(forUserID: String, completion: @escaping (Result <[FavoriteEvent], Error>) -> ()) {
-//
-//
-//        db.collection(FireStoreCollections.events.rawValue).whereField("creatorID", isEqualTo: forUserID).getDocuments { (snapshot, error) in
-//            if let error = error {
-//                completion(.failure(error))
-//            } else {
-//                let events = snapshot?.documents.compactMap({ (snapshot) -> FavoriteEvent? in
-//                    let eventID = snapshot.documentID
-//                    let event = FavoriteEvent(from: snapshot.data(), id: eventID)
-//                    return event
-//                })
-//                completion(.success(events ?? []))
-//            }
-//        }
-//    }
+    func getAvailablePlates(claimStatus: Bool, completion: @escaping (Result <[Plate], Error>) -> ()) {
+
+
+        db.collection(FireStoreCollections.plates.rawValue).whereField("claimStatus", isEqualTo: claimStatus).getDocuments { (snapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                let events = snapshot?.documents.compactMap({ (snapshot) -> Plate? in
+                    let documentID = snapshot.documentID
+                    let event = Plate(from: snapshot.data(), id: documentID)
+                    return event
+                })
+                completion(.success(events ?? []))
+            }
+        }
+    }
 //
 //    func deleteFavoriteEvent(forUserID: String, eventID: String, completion: @escaping (Result <(), Error>) -> ()) {
 //
@@ -158,17 +158,17 @@ class FirestoreService {
 //
 ////    MARK: - Art collection
 //
-    func savePlate(plate: Plate, completion: @escaping (Result <(), Error>) -> ()){
-        var fields = plate.fieldsDict
-        fields["dateCreated"] = Date()
-        db.collection(FireStoreCollections.userplates.rawValue).addDocument(data: fields) { (error) in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                completion(.success(()))
-            }
-        }
-    }
+//    func savePlate(plate: Plate, completion: @escaping (Result <(), Error>) -> ()){
+//        var fields = plate.fieldsDict
+//        fields["dateCreated"] = Date()
+//        db.collection(FireStoreCollections.userplates.rawValue).addDocument(data: fields) { (error) in
+//            if let error = error {
+//                completion(.failure(error))
+//            } else {
+//                completion(.success(()))
+//            }
+//        }
+//    }
 //
 //    func getAllArts(sortingCriteria: SortingCriteria? = nil, completion: @escaping (Result <[FavoriteArt], Error>) -> ()) {
 //        let completionHandler: FIRQuerySnapshotBlock = {(snapshot, error) in
