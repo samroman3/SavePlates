@@ -16,7 +16,7 @@ struct Plate {
     let restaurant: String
     let restaurantID: String
     let plateID: String
-    let userID: String
+    let userID: String?
     let claimStatus: Bool = false
     let plateCount: Int
     let dateCreated: Date?
@@ -66,6 +66,6 @@ struct Plate {
         self.tags = tags
     }
     var fieldsDict: [String: Any] {
-        return ["description": self.description, "imageURL": self.imageURL, "restaurant": self.restaurant, "restaurantID": self.restaurantID, "plateID": self.plateID, "userID": self.userID, "plateCount": self.plateCount, "originalPrice": self.originalPrice, "discount": self.discount, "tags": self.tags]
+        return ["description": self.description, "imageURL": self.imageURL, "restaurant": self.restaurant, "restaurantID": self.restaurantID, "plateID": self.plateID, "userID": self.userID ?? "", "plateCount": self.plateCount, "originalPrice": self.originalPrice, "discount": self.discount, "tags": self.tags]
     }
 }

@@ -9,6 +9,12 @@
 import UIKit
 
 class PlatesHistoryViewController: UIViewController {
+    
+    var plates = [Plate]() {
+        didSet {
+            historyList.reloadData()
+        }
+    }
   
  lazy var historyList: UITableView = {
         let tableView = UITableView()
@@ -20,11 +26,33 @@ class PlatesHistoryViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-      constraintPlatesList()
+        constraintPlatesList()
+        loadPlates()
         // Do any additional setup after loading the view.
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        loadPlates()
+    }
+    
+    private func loadPlates(){
+        FirestoreService.manager.getUserPlates(userID: FirebaseAuthService.manager.currentUser!.uid) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let plates):
+                    if plates.count != self.plates.count{
+                    self.plates = plates
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    
   private func constraintPlatesList() {
          view.addSubview(historyList)
          historyList.translatesAutoresizingMaskIntoConstraints = false
@@ -39,16 +67,30 @@ class PlatesHistoryViewController: UIViewController {
 
 extension PlatesHistoryViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    return plates.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = historyList.dequeueReusableCell(withIdentifier: "PlatesHistoryCell", for: indexPath) as? PlatesCell else {return UITableViewCell()}
+    let plate = plates[indexPath.row]
     
     cell.cellImage.image = UIImage(named: "NoImage")
-    cell.businessName.text = "Business Name"
-    cell.foodItem.text = "Food Item"
-    cell.itemPrice.text = "Item Price $$$"
+    cell.businessName.text = plate.restaurant
+    cell.foodItem.text = plate.description
+    let price = plate.originalPrice * plate.discount
+    cell.itemPrice.text = "$\(price.rounded())"
+    
+    FirebaseStorageService.manager.getImage(url: plate.imageURL) { (result) in
+        DispatchQueue.main.async {
+            switch result {
+            case .failure(let error):
+                print(error)
+                cell.cellImage.image = UIImage(named: "NoImage")
+            case .success(let image):
+                cell.cellImage.image = image
+            }
+        }
+    }
     return cell
   }
   
