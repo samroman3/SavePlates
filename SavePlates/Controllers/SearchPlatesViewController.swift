@@ -17,6 +17,8 @@ class SearchPlatesViewController: UIViewController {
         }
     }
     
+    var loadedImages = [UIImage]()
+    
     lazy var platesList: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
@@ -34,7 +36,7 @@ class SearchPlatesViewController: UIViewController {
         view.backgroundColor = .systemPink
         constraintPlatesList()
         loadPlates()
-      navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signOut))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signOut))
       
 
     }
@@ -85,16 +87,6 @@ class SearchPlatesViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension SearchPlatesViewController: UITableViewDataSource {
@@ -108,7 +100,8 @@ extension SearchPlatesViewController: UITableViewDataSource {
         
         cell.businessName.text = plate.restaurant
         cell.foodItem.text = plate.description
-        cell.itemPrice.text = "$\(plate.originalPrice)"
+        let price = plate.originalPrice * plate.discount
+        cell.itemPrice.text = "$\(price.rounded())"
         
         FirebaseStorageService.manager.getImage(url: plate.imageURL) { (result) in
             DispatchQueue.main.async {
@@ -118,13 +111,25 @@ extension SearchPlatesViewController: UITableViewDataSource {
                     cell.cellImage.image = UIImage(named: "NoImage")
                 case .success(let image):
                     cell.cellImage.image = image
+                    self.loadedImages.append(image)
                 }
             }
         }
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedPlate = plates[indexPath.row]
+        let detailVC = PlateDetailViewController()
+        detailVC.plate = selectedPlate
+        let price = selectedPlate.originalPrice * selectedPlate.discount
+        detailVC.priceLabel.text = "$\(price.rounded())"
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
+
+
 
 extension SearchPlatesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
