@@ -44,7 +44,7 @@ class PlateDetailViewController: UIViewController {
     lazy var plateImage: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .gray
-        image.contentMode = .scaleAspectFill
+        image.contentMode = .scaleToFill
         return image
     }()
     
@@ -109,8 +109,8 @@ class PlateDetailViewController: UIViewController {
         plateImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             plateImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            plateImage.widthAnchor.constraint(equalToConstant: view.frame.width - 20),
-            plateImage.heightAnchor.constraint(equalToConstant:  view.frame.width - 20),
+            plateImage.widthAnchor.constraint(equalToConstant: view.frame.width - 30),
+            plateImage.heightAnchor.constraint(equalToConstant:  view.frame.width - 30),
             plateImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
     }
     

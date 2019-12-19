@@ -13,6 +13,7 @@ class PlatesCell: UITableViewCell {
     lazy var cellImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "NoImage")
+        
         return image
     }()
     

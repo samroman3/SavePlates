@@ -124,7 +124,7 @@ extension SearchPlatesViewController: UITableViewDataSource {
         let detailVC = PlateDetailViewController()
         detailVC.plate = selectedPlate
         let price = selectedPlate.originalPrice * selectedPlate.discount
-        detailVC.priceLabel.text = "$\(price.rounded())"
+        detailVC.priceLabel.text = "Price: \n $\(price.rounded())"
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
