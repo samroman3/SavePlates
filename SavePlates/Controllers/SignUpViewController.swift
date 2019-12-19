@@ -168,7 +168,7 @@ class SignUpViewController: UIViewController {
                //MARK: TODO - refactor this logic into scene delegate
                UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromBottom, animations: {
                        window.rootViewController = {
-                           let mainVC = FoodTypePickerViewController()
+                           let mainVC = MainScreenTabBarViewController()
                            return mainVC
                        }()
                }, completion: nil)

@@ -172,7 +172,7 @@ class LoginViewController: UIViewController {
             print("login successful")
             UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromBottom, animations: {
                            window.rootViewController = {
-                                      let mainvc = SearchPlatesViewController()
+                                      let mainvc = MainScreenTabBarViewController()
                                       return mainvc
                                   }()
                               
