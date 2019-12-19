@@ -9,14 +9,10 @@
 
 import UIKit
 import FirebaseAuth
+
 class SignUpViewController: UIViewController {
-    override func viewDidLoad() {
-        view.backgroundColor = .white
-        setUpConstraints()
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
     
-    }
+
     
     //MARK: UI TextFields
     
@@ -109,6 +105,12 @@ class SignUpViewController: UIViewController {
         return button
     }()
     
+    override func viewDidLoad() {
+        ColorScheme.setUpBackgroundColor(view)
+        setUpConstraints()
+        super.viewDidLoad()
+    }
+    
     //MARK: Private Methods
     private func showAlert(with title: String, and message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -186,8 +188,7 @@ class SignUpViewController: UIViewController {
                   return
               }
               signUpButton.isEnabled = true
-        emailIcon.tintColor = .systemBlue
-           passwordIcon.tintColor = .systemBlue
+      
           }
     
     
