@@ -28,6 +28,8 @@
 		64C7F7D0AADC290F8622161B /* Pods_SavePlatesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DD39613BD3CCFE073EC28D /* Pods_SavePlatesTests.framework */; };
 		80B2AFCDA73858C43B387EB3 /* Pods_SavePlates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393B89FC702F50A5D867AF31 /* Pods_SavePlates.framework */; };
 		82FF9275CFEC03EB95DDFE57 /* Pods_SavePlates_SavePlatesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18ABAFE17C83011E6AC3CB7E /* Pods_SavePlates_SavePlatesUITests.framework */; };
+		D852786D23AAF7E7006AF730 /* MainScreenTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D852786C23AAF7E7006AF730 /* MainScreenTabBarViewController.swift */; };
+		D852786F23AAF805006AF730 /* PlatesHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D852786E23AAF805006AF730 /* PlatesHistoryViewController.swift */; };
 		DF79AF8223AAAE990097267D /* FoodTypePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79AF8123AAAE990097267D /* FoodTypePickerViewController.swift */; };
 		DF79AF8423AAC0A50097267D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF79AF8323AAC0A50097267D /* GoogleService-Info.plist */; };
 		DF79AF8623AAC1670097267D /* SearchPlatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF79AF8523AAC1670097267D /* SearchPlatesViewController.swift */; };
@@ -86,6 +88,8 @@
 		72DD39613BD3CCFE073EC28D /* Pods_SavePlatesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SavePlatesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16DEDF54A58654580B50CAF /* Pods-SavePlatesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlatesTests.debug.xcconfig"; path = "Target Support Files/Pods-SavePlatesTests/Pods-SavePlatesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D37CEB28FAFA09144593C8EF /* Pods-SavePlatesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SavePlatesTests.release.xcconfig"; path = "Target Support Files/Pods-SavePlatesTests/Pods-SavePlatesTests.release.xcconfig"; sourceTree = "<group>"; };
+		D852786C23AAF7E7006AF730 /* MainScreenTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenTabBarViewController.swift; sourceTree = "<group>"; };
+		D852786E23AAF805006AF730 /* PlatesHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatesHistoryViewController.swift; sourceTree = "<group>"; };
 		DF79AF8123AAAE990097267D /* FoodTypePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypePickerViewController.swift; sourceTree = "<group>"; };
 		DF79AF8323AAC0A50097267D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF79AF8523AAC1670097267D /* SearchPlatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlatesViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 				DF79AF8123AAAE990097267D /* FoodTypePickerViewController.swift */,
 				3AAB494423AAD71C003A779A /* SignUpViewController.swift */,
 				3AAB494623AAD74C003A779A /* PlateDetailViewController.swift */,
+				D852786C23AAF7E7006AF730 /* MainScreenTabBarViewController.swift */,
+				D852786E23AAF805006AF730 /* PlatesHistoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -516,11 +522,13 @@
 			files = (
 				3AAB493B23AAB647003A779A /* String+Validations.swift in Sources */,
 				3AAB492B23AA9F29003A779A /* LoginViewController.swift in Sources */,
+				D852786F23AAF805006AF730 /* PlatesHistoryViewController.swift in Sources */,
 				3AAB494723AAD74C003A779A /* PlateDetailViewController.swift in Sources */,
 				DF79AF8823AAC2270097267D /* PlatesCell.swift in Sources */,
 				3AAB48E623AA900A003A779A /* ViewController.swift in Sources */,
 				3AAB492F23AA9F45003A779A /* NetworkHelper.swift in Sources */,
 				3AAB48E223AA900A003A779A /* AppDelegate.swift in Sources */,
+				D852786D23AAF7E7006AF730 /* MainScreenTabBarViewController.swift in Sources */,
 				3AAB494923AAD7B2003A779A /* Plate.swift in Sources */,
 				3AAB494B23AAD7E4003A779A /* Restaurant.swift in Sources */,
 				DF79AF8223AAAE990097267D /* FoodTypePickerViewController.swift in Sources */,
