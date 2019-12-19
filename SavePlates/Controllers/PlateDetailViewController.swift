@@ -96,7 +96,7 @@ class PlateDetailViewController: UIViewController {
                        case .success():
                            print("success")
                            self.claimButton.isEnabled = false
-                          
+                           self.navigationController?.popViewController(animated: true)
                        }
                    }
         }

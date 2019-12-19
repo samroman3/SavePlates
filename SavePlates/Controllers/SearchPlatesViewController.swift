@@ -9,13 +9,42 @@
 import UIKit
 
 class SearchPlatesViewController: UIViewController {
-  
-  
-  var plates = [Plate]() {
-    didSet {
-      platesList.reloadData()
+
+ 
+    
+    var plates = [Plate]() {
+        didSet {
+            platesList.reloadData()
+        }
     }
-  }
+    
+        
+    
+    lazy var platesList: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(PlatesCell.self, forCellReuseIdentifier: "PlatesCell")
+        return tableView
+    }()
+    
+    
+    
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemPink
+        constraintPlatesList()
+        loadPlates()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signOut))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        loadPlates()
+    }
+  
   
   var loadedImages = [UIImage]()
   
@@ -65,19 +94,26 @@ class SearchPlatesViewController: UIViewController {
     alert.addAction(cancel)
     present(alert, animated:true)
   }
-  
-  private func loadPlates(){
-    FirestoreService.manager.getAllPlates { (result) in
-      DispatchQueue.main.async {
-        switch result {
-        case .failure(let error):
-          print(error)
-        case .success(let platesfromfirebase):
-          self.plates = platesfromfirebase
+
+    
+    private func loadPlates(){
+        FirestoreService.manager.getAvailablePlates(claimStatus: false) { (result) in
+               DispatchQueue.main.async {
+                         switch result {
+                         case .failure(let error):
+                             print(error)
+                         case .success(let plates):
+                            if plates.count != self.plates.count{
+                            self.plates = plates
+                            }
+                         }
+                     }
+
         }
-      }
     }
-  }
+      
+    
+  
   
   private func constraintPlatesList() {
     view.addSubview(platesList)
@@ -97,27 +133,29 @@ extension SearchPlatesViewController: UITableViewDataSource {
     return plates.count
   }
   
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = platesList.dequeueReusableCell(withIdentifier: "PlatesCell", for: indexPath) as? PlatesCell else {return UITableViewCell()}
-    let plate = plates[indexPath.row]
-    
-    cell.businessName.text = plate.restaurant
-    cell.foodItem.text = plate.description
-    let price = plate.originalPrice * plate.discount
-    cell.itemPrice.text = "$\(price.rounded())"
-    
-    FirebaseStorageService.manager.getImage(url: plate.imageURL) { (result) in
-      DispatchQueue.main.async {
-        switch result {
-        case .failure(let error):
-          print(error)
-          cell.cellImage.image = UIImage(named: "NoImage")
-        case .success(let image):
-          cell.cellImage.image = image
-          self.loadedImages.append(image)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = platesList.dequeueReusableCell(withIdentifier: "PlatesCell", for: indexPath) as? PlatesCell else {return UITableViewCell()}
+        let plate = plates[indexPath.row]
+        
+        cell.businessName.text = plate.restaurant
+        cell.foodItem.text = plate.description
+        let price = plate.originalPrice * plate.discount
+        cell.itemPrice.text = "$\(price.rounded())"
+        
+        FirebaseStorageService.manager.getImage(url: plate.imageURL) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                    cell.cellImage.image = UIImage(named: "NoImage")
+                case .success(let image):
+                    cell.cellImage.image = image
+                }
+            }
+
         }
       }
-    }
+    
     
     return cell
   }
