@@ -9,6 +9,12 @@
 import UIKit
 
 class PlatesHistoryViewController: UIViewController {
+    
+    var plates = [Plate]() {
+        didSet {
+            historyList.reloadData()
+        }
+    }
   
  lazy var historyList: UITableView = {
         let tableView = UITableView()
@@ -18,13 +24,75 @@ class PlatesHistoryViewController: UIViewController {
         return tableView
     }()
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      constraintPlatesList()
-        // Do any additional setup after loading the view.
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setupNavigationBar()
+    constraintPlatesList()
+    loadPlates()
+    ColorScheme.setUpBackgroundColor(historyList)
+    ColorScheme.setUpBackgroundColor(view)
+    // Do any additional setup after loading the view.
+  }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        loadPlates()
     }
     
-
+  private func setupNavigationBar() {
+    self.navigationItem.title = "Claimed Plates"
+    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signOut))
+  }
+  
+  @objc private func signOut() {
+    let alert = UIAlertController(title: "Log Out?", message: nil, preferredStyle: .actionSheet)
+    let action = UIAlertAction.init(title: "Yup!", style: .destructive, handler: .some({ (action) in
+      DispatchQueue.main.async {
+        FirebaseAuthService.manager.logoutUser()
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+          let sceneDelegate = windowScene.delegate as? SceneDelegate, let window = sceneDelegate.window
+          else {
+            return
+        }
+        UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromBottom, animations: {
+          window.rootViewController = LoginViewController()
+        }, completion: nil)
+      }
+    }))
+    let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    alert.addAction(action)
+    alert.addAction(cancel)
+    present(alert, animated:true)
+  }
+  
+    private func loadPlates(){
+        FirestoreService.manager.getUserPlates(userID: FirebaseAuthService.manager.currentUser!.uid) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let platesfromFire):
+                    if platesfromFire.count != self.plates.count{
+                    self.plates = platesfromFire
+                    }
+                    self.loadStatusUpdates(plates: platesfromFire, currentPlates: self.plates)
+                }
+            }
+        }
+        
+    }
+    
+    private func loadStatusUpdates(plates: [Plate], currentPlates: [Plate]){
+        for plate in plates {
+            for current in currentPlates{
+                if plate.pickupStatus != current.pickupStatus {
+                    self.historyList.reloadData()
+                }
+        }
+    }
+    }
+    
+    
   private func constraintPlatesList() {
          view.addSubview(historyList)
          historyList.translatesAutoresizingMaskIntoConstraints = false
@@ -39,16 +107,38 @@ class PlatesHistoryViewController: UIViewController {
 
 extension PlatesHistoryViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    return plates.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = historyList.dequeueReusableCell(withIdentifier: "PlatesHistoryCell", for: indexPath) as? PlatesCell else {return UITableViewCell()}
+    let plate = plates[indexPath.row]
+    cell.isUserInteractionEnabled = false
+    let status = plate.pickupStatus
+    switch status {
+    case true:
+        cell.backgroundColor = .gray
+    case false:
+        cell.backgroundColor = .green
+    }
     
     cell.cellImage.image = UIImage(named: "NoImage")
-    cell.businessName.text = "Business Name"
-    cell.foodItem.text = "Food Item"
-    cell.itemPrice.text = "Item Price $$$"
+    cell.businessName.text = plate.restaurant
+    cell.foodItem.text = plate.description
+    let myDouble = plate.originalPrice * plate.discount
+    let doubleStr = String(format: "%.2f", ceil(myDouble*100)/100)
+    cell.itemPrice.text = "$\(doubleStr)"
+    FirebaseStorageService.manager.getImage(url: plate.imageURL) { (result) in
+        DispatchQueue.main.async {
+            switch result {
+            case .failure(let error):
+                print(error)
+                cell.cellImage.image = UIImage(named: "NoImage")
+            case .success(let image):
+                cell.cellImage.image = image
+            }
+        }
+    }
     return cell
   }
   

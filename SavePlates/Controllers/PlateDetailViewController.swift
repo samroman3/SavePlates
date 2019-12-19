@@ -37,6 +37,7 @@ class PlateDetailViewController: UIViewController {
         tv.numberOfLines = 0
         tv.textAlignment = .center
         tv.textColor = .black
+      tv.backgroundColor = .clear
         return tv
     }()
     
@@ -75,12 +76,13 @@ class PlateDetailViewController: UIViewController {
     lazy var claimButton: UIButton = {
            let button = UIButton()
            button.setTitle("Claim", for: .normal)
-           button.setTitleColor(.white, for: .normal)
+//           button.setTitleColor(.white, for: .normal)
            button.titleLabel?.font = button.titleLabel?.font.withSize(34)
-           button.backgroundColor = .systemPink
+//           button.backgroundColor = .systemPink
            button.addTarget(self, action: #selector(updateClaimStatus), for: .touchUpInside)
             button.showsTouchWhenHighlighted = true
            button.isEnabled = true
+      ColorScheme.styleFilledButton(button)
            return button
        }()
     
@@ -94,7 +96,7 @@ class PlateDetailViewController: UIViewController {
                        case .success():
                            print("success")
                            self.claimButton.isEnabled = false
-                          
+                           self.navigationController?.popViewController(animated: true)
                        }
                    }
         }
@@ -107,7 +109,9 @@ class PlateDetailViewController: UIViewController {
   //MARK: LifeCycle Methods
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .white
+    ColorScheme.setUpBackgroundColor(view)
+    guard let restuarantName = plate?.restaurant else {return}
+    self.title = "\(restuarantName)"
     setUpVC()
     // Do any additional setup after loading the view.
   }
@@ -131,7 +135,7 @@ class PlateDetailViewController: UIViewController {
         NSLayoutConstraint.activate([
             plateImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             plateImage.widthAnchor.constraint(equalToConstant: view.frame.width - 30),
-            plateImage.heightAnchor.constraint(equalToConstant:  view.frame.width - 30),
+            plateImage.heightAnchor.constraint(equalToConstant:  view.frame.width - 100),
             plateImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
     }
     
@@ -139,13 +143,14 @@ class PlateDetailViewController: UIViewController {
         view.addSubview(plateDescription)
         plateDescription.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            plateDescription.topAnchor.constraint(equalTo: plateImage.bottomAnchor, constant: 20),
-            plateDescription.widthAnchor.constraint(equalToConstant: view.frame.width - 30), plateDescription.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
+            plateDescription.topAnchor.constraint(equalTo: plateImage.bottomAnchor, constant: -10),
+            plateDescription.widthAnchor.constraint(equalToConstant: view.frame.width - 30), plateDescription.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            plateDescription.heightAnchor.constraint(equalToConstant: 150)])
     }
     
-    private func constrainRestaurantName(){
-        
-    }
+//    private func constrainRestaurantName(){
+//
+//    }
     
     private func constrainPriceAndPickUp(){
         let stack = UIStackView(arrangedSubviews: [priceLabel, pickUpTime])
@@ -155,9 +160,10 @@ class PlateDetailViewController: UIViewController {
         stack.distribution = .equalSpacing
         stack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            stack.topAnchor.constraint(equalTo: plateDescription.bottomAnchor, constant: 35),
-            stack.widthAnchor.constraint(equalToConstant: view.frame.width - 50),
-            stack.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
+            stack.topAnchor.constraint(equalTo: plateDescription.bottomAnchor, constant: -20),
+            stack.widthAnchor.constraint(equalToConstant: view.frame.width),
+            stack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stack.heightAnchor.constraint(equalToConstant: 60)])
     }
     
     private func constrainClaimButton(){
@@ -165,7 +171,9 @@ class PlateDetailViewController: UIViewController {
         claimButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             claimButton.widthAnchor.constraint(equalToConstant: view.frame.width - 40),
-            claimButton.heightAnchor.constraint(equalToConstant: 60), claimButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            claimButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 30)])
+            claimButton.heightAnchor.constraint(equalToConstant: 50),
+            claimButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            claimButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 0),
+            claimButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)])
     }
 }
