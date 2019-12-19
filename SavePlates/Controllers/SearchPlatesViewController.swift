@@ -106,10 +106,22 @@ extension SearchPlatesViewController: UITableViewDataSource {
         guard let cell = platesList.dequeueReusableCell(withIdentifier: "PlatesCell", for: indexPath) as? PlatesCell else {return UITableViewCell()}
         let plate = plates[indexPath.row]
         
-        cell.cellImage.image = UIImage(named: "NoImage")
         cell.businessName.text = plate.restaurant
         cell.foodItem.text = plate.description
         cell.itemPrice.text = "\(plate.originalPrice)"
+        
+        FirebaseStorageService.manager.getImage(url: plate.imageURL) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                    cell.cellImage.image = UIImage(named: "NoImage")
+                case .success(let image):
+                    cell.cellImage.image = image
+                }
+            }
+        }
+        
         return cell
     }
 }
