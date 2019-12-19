@@ -10,6 +10,13 @@ import UIKit
 
 class SearchPlatesViewController: UIViewController {
     
+    
+    var plates = [Plate]() {
+        didSet {
+            platesList.reloadData()
+        }
+    }
+    
     lazy var platesList: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
@@ -20,13 +27,28 @@ class SearchPlatesViewController: UIViewController {
     
     
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemPink
         constraintPlatesList()
+        loadPlates()
         
 
+    }
+    
+    private func loadPlates(){
+        FirestoreService.manager.getAllPlates { (result) in
+               DispatchQueue.main.async {
+                         switch result {
+                         case .failure(let error):
+                             print(error)
+                         case .success(let platesfromfirebase):
+                             self.plates = platesfromfirebase
+                         }
+                     }
+        }
     }
     
     private func constraintPlatesList() {
@@ -54,16 +76,17 @@ class SearchPlatesViewController: UIViewController {
 
 extension SearchPlatesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return plates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = platesList.dequeueReusableCell(withIdentifier: "PlatesCell", for: indexPath) as? PlatesCell else {return UITableViewCell()}
+        let plate = plates[indexPath.row]
         
         cell.cellImage.image = UIImage(named: "NoImage")
-        cell.businessName.text = "Business Name"
-        cell.foodItem.text = "Food Item"
-        cell.itemPrice.text = "Item Price $$$"
+        cell.businessName.text = plate.restaurant
+        cell.foodItem.text = plate.description
+        cell.itemPrice.text = "\(plate.originalPrice)"
         return cell
     }
 }
