@@ -34,9 +34,32 @@ class SearchPlatesViewController: UIViewController {
         view.backgroundColor = .systemPink
         constraintPlatesList()
         loadPlates()
-        
+      navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signOut))
+      
 
     }
+  
+
+  @objc private func signOut() {
+      let alert = UIAlertController(title: "Log Out?", message: nil, preferredStyle: .actionSheet)
+      let action = UIAlertAction.init(title: "Yup!", style: .destructive, handler: .some({ (action) in
+           DispatchQueue.main.async {
+              FirebaseAuthService.manager.logoutUser()
+                     guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                         let sceneDelegate = windowScene.delegate as? SceneDelegate, let window = sceneDelegate.window
+                         else {
+                             return
+                     }
+                     UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromBottom, animations: {
+                         window.rootViewController = LoginViewController()
+                     }, completion: nil)
+                 }
+      }))
+      let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+      alert.addAction(action)
+      alert.addAction(cancel)
+      present(alert, animated:true)
+  }
     
     private func loadPlates(){
         FirestoreService.manager.getAllPlates { (result) in
