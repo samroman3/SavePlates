@@ -18,15 +18,7 @@ class SearchPlatesViewController: UIViewController {
         }
     }
     
-        
-    
-    lazy var platesList: UITableView = {
-        let tableView = UITableView()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(PlatesCell.self, forCellReuseIdentifier: "PlatesCell")
-        return tableView
-    }()
+
     
     
     
@@ -34,10 +26,11 @@ class SearchPlatesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemPink
         constraintPlatesList()
         loadPlates()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signOut))
+      ColorScheme.setUpBackgroundColor(view)
+      setupNavigationBar()
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,15 +51,6 @@ class SearchPlatesViewController: UIViewController {
   
   
   
-  
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    ColorScheme.setUpBackgroundColor(view)
-    setupNavigationBar()
-    constraintPlatesList()
-    loadPlates()
-  }
   
   private func setupNavigationBar() {
     self.navigationItem.title = "Available Plates"
@@ -139,8 +123,9 @@ extension SearchPlatesViewController: UITableViewDataSource {
         
         cell.businessName.text = plate.restaurant
         cell.foodItem.text = plate.description
-        let price = plate.originalPrice * plate.discount
-        cell.itemPrice.text = "$\(price.rounded())"
+        let myDouble = plate.originalPrice * plate.discount
+       let doubleStr = String(format: "%.2f", ceil(myDouble*100)/100)
+        cell.itemPrice.text = "$\(doubleStr)"
         
         FirebaseStorageService.manager.getImage(url: plate.imageURL) { (result) in
             DispatchQueue.main.async {
@@ -153,7 +138,6 @@ extension SearchPlatesViewController: UITableViewDataSource {
                 }
             }
 
-        }
       }
     
     
@@ -168,6 +152,7 @@ extension SearchPlatesViewController: UITableViewDataSource {
     detailVC.priceLabel.text = "Price: \n $\(price.rounded())"
     navigationController?.pushViewController(detailVC, animated: true)
   }
+
 }
 
 

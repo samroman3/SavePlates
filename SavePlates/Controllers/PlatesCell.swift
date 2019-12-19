@@ -21,24 +21,27 @@ class PlatesCell: UITableViewCell {
     lazy var businessName: UILabel = {
         let label = UILabel()
         label.text = "Business Name"
+      label.font = UIFont(name: "Thornburi-Bold", size: 14)
         label.font = label.font.withSize(14)
-        label.textAlignment = .left
+      
         return label
     }()
     
     lazy var foodItem: UILabel = {
         let label = UILabel()
         label.text = "Food Item"
+      label.font = UIFont(name: "Thornburi", size: 16)
         label.font = label.font.withSize(16)
-        label.textAlignment = .left
+//      ColorScheme.styleLabel(label)
         return label
     }()
     
     lazy var itemPrice: UILabel = {
         let label = UILabel()
         label.text = "Item Price $"
-        label.font = label.font.withSize(13)
-        label.textAlignment = .left
+      label.font = UIFont(name: "Thornburi-Light", size: 16)
+        label.font = label.font.withSize(16)
+      ColorScheme.styleLabel(label)
         return label
     }()
 
