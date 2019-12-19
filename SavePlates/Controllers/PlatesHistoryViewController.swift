@@ -28,6 +28,9 @@ class PlatesHistoryViewController: UIViewController {
         super.viewDidLoad()
         constraintPlatesList()
         loadPlates()
+        historyList.backgroundColor = .white
+        ColorScheme.setUpBackgroundColor(view)
+        navigationController?.navigationBar.isHidden = true
         // Do any additional setup after loading the view.
     }
     
@@ -42,14 +45,25 @@ class PlatesHistoryViewController: UIViewController {
                 switch result {
                 case .failure(let error):
                     print(error)
-                case .success(let plates):
-                    if plates.count != self.plates.count{
-                    self.plates = plates
+                case .success(let platesfromFire):
+                    if platesfromFire.count != self.plates.count{
+                    self.plates = platesfromFire
                     }
+                    self.loadStatusUpdates(plates: platesfromFire, currentPlates: self.plates)
                 }
             }
         }
         
+    }
+    
+    private func loadStatusUpdates(plates: [Plate], currentPlates: [Plate]){
+        for plate in plates {
+            for current in currentPlates{
+                if plate.pickupStatus != current.pickupStatus {
+                    self.historyList.reloadData()
+                }
+        }
+    }
     }
     
     
@@ -73,13 +87,19 @@ extension PlatesHistoryViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = historyList.dequeueReusableCell(withIdentifier: "PlatesHistoryCell", for: indexPath) as? PlatesCell else {return UITableViewCell()}
     let plate = plates[indexPath.row]
-    
+    cell.isUserInteractionEnabled = false
+    let status = plate.pickupStatus
+    switch status {
+    case true:
+        cell.backgroundColor = .gray
+    case false:
+        cell.backgroundColor = .green
+    }
     cell.cellImage.image = UIImage(named: "NoImage")
     cell.businessName.text = plate.restaurant
     cell.foodItem.text = plate.description
     let price = plate.originalPrice * plate.discount
     cell.itemPrice.text = "$\(price.rounded())"
-    
     FirebaseStorageService.manager.getImage(url: plate.imageURL) { (result) in
         DispatchQueue.main.async {
             switch result {
