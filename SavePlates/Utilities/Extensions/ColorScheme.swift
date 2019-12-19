@@ -23,6 +23,13 @@ class ColorScheme {
     label.textAlignment = .center
   }
   
+  static func styleLabel(_ label: UILabel) {
+    label.numberOfLines = 0
+    label.textColor = UIColor(displayP3Red: 13/255, green: 92/255, blue: 99/255, alpha: 1)
+    label.backgroundColor = .clear
+    label.textAlignment = .left
+  }
+  
   static func styleTextField(_ textfield: UITextField) {
     textfield.autocorrectionType = .no
     textfield.textAlignment = .left
