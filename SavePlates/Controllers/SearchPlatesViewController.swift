@@ -17,7 +17,7 @@ class SearchPlatesViewController: UIViewController {
         }
     }
     
-    var loadedImages = [UIImage]()
+        
     
     lazy var platesList: UITableView = {
         let tableView = UITableView()
@@ -37,8 +37,11 @@ class SearchPlatesViewController: UIViewController {
         constraintPlatesList()
         loadPlates()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signOut))
-      
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        loadPlates()
     }
   
 
@@ -64,13 +67,15 @@ class SearchPlatesViewController: UIViewController {
   }
     
     private func loadPlates(){
-        FirestoreService.manager.getAllPlates { (result) in
+        FirestoreService.manager.getAvailablePlates(claimStatus: false) { (result) in
                DispatchQueue.main.async {
                          switch result {
                          case .failure(let error):
                              print(error)
-                         case .success(let platesfromfirebase):
-                             self.plates = platesfromfirebase
+                         case .success(let plates):
+                            if plates.count != self.plates.count{
+                            self.plates = plates
+                            }
                          }
                      }
         }
@@ -111,7 +116,6 @@ extension SearchPlatesViewController: UITableViewDataSource {
                     cell.cellImage.image = UIImage(named: "NoImage")
                 case .success(let image):
                     cell.cellImage.image = image
-                    self.loadedImages.append(image)
                 }
             }
         }

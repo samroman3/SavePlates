@@ -99,21 +99,21 @@ class FirestoreService {
 //        }
 //    }
 //
-//    func getAllPlates(sortingCriteria: SortingCriteria? = nil, completion: @escaping (Result <[Plate], Error>) -> ()) {
-//        let completionHandler: FIRQuerySnapshotBlock = {(snapshot, error) in
-//            if let error = error {
-//                completion(.failure(error))
-//            } else {
-//                let plates = snapshot?.documents.compactMap({ (snapshot) -> Plate? in
-//                    let plateID = snapshot.documentID
-//                    let plate = Plate(from: snapshot.data(), id: plateID)
-//                    return plate
-//                })
-//                completion(.success(plates ?? []))
-//            }
-//        }
-//    }
-//
+   func getUserPlates(userID: String, completion: @escaping (Result <[Plate], Error>) -> ()) {
+        db.collection(FireStoreCollections.plates.rawValue).whereField("userID", isEqualTo: userID).getDocuments { (snapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                let plates = snapshot?.documents.compactMap({ (snapshot) -> Plate? in
+                    let documentID = snapshot.documentID
+                    let plate = Plate(from: snapshot.data(), id: documentID)
+                    return plate
+                })
+                completion(.success(plates ?? []))
+            }
+        }
+    }
+
 //        let collection = db.collection(FireStoreCollections.events.rawValue)
 //        if let sortingCriteria = sortingCriteria {
 //            let query = collection.order(by: sortingCriteria.rawValue, descending: sortingCriteria.shouldSortDescending)
@@ -124,18 +124,16 @@ class FirestoreService {
 //    }
 //
     func getAvailablePlates(claimStatus: Bool, completion: @escaping (Result <[Plate], Error>) -> ()) {
-
-
         db.collection(FireStoreCollections.plates.rawValue).whereField("claimStatus", isEqualTo: claimStatus).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else {
-                let events = snapshot?.documents.compactMap({ (snapshot) -> Plate? in
+                let plates = snapshot?.documents.compactMap({ (snapshot) -> Plate? in
                     let documentID = snapshot.documentID
-                    let event = Plate(from: snapshot.data(), id: documentID)
-                    return event
+                    let plate = Plate(from: snapshot.data(), id: documentID)
+                    return plate
                 })
-                completion(.success(events ?? []))
+                completion(.success(plates ?? []))
             }
         }
     }
@@ -170,24 +168,25 @@ class FirestoreService {
 //        }
 //    }
 //
-//    func getAllArts(sortingCriteria: SortingCriteria? = nil, completion: @escaping (Result <[FavoriteArt], Error>) -> ()) {
+//    func getUserArts(userID: String, sortingCriteria: SortingCriteria? = nil, completion: @escaping (Result <[Plate], Error>) -> ()) {
 //        let completionHandler: FIRQuerySnapshotBlock = {(snapshot, error) in
 //            if let error = error {
 //                completion(.failure(error))
 //            } else {
-//                let arts = snapshot?.documents.compactMap({ (snapshot) -> FavoriteArt? in
-//                    let artID = snapshot.documentID
-//                    let art = FavoriteArt(from: snapshot.data(), id: artID)
-//                    return art
+//                let plates = snapshot?.documents.compactMap({ (snapshot) -> Plate? in
+//                    let plateID = snapshot.documentID
+//                    let plate = Plate(from: snapshot.data(), id: plateID)
+//                    return plate
 //                })
-//                completion(.success(arts ?? []))
+//                completion(.success(plates ?? []))
 //            }
 //        }
 //
-//        let collection = db.collection(FireStoreCollections.arts.rawValue)
+//        let collection = db.collection(FireStoreCollections.plates.rawValue)
 //        if let sortingCriteria = sortingCriteria {
 //            let query = collection.order(by: sortingCriteria.rawValue, descending: sortingCriteria.shouldSortDescending)
-//            query.getDocuments(completion: completionHandler)
+//
+//            query.whereField("userID", isEqualTo: userID).getDocuments(completion: completionHandler)
 //        } else {
 //            collection.getDocuments(completion: completionHandler)
 //        }
