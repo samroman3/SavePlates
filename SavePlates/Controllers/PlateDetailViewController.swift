@@ -78,10 +78,31 @@ class PlateDetailViewController: UIViewController {
            button.setTitleColor(.white, for: .normal)
            button.titleLabel?.font = button.titleLabel?.font.withSize(34)
            button.backgroundColor = .systemPink
-//           button.addTarget(self, action: #selector(tryLogin), for: .touchUpInside)
-           button.isEnabled = false
+           button.addTarget(self, action: #selector(updateClaimStatus), for: .touchUpInside)
+            button.showsTouchWhenHighlighted = true
+           button.isEnabled = true
            return button
        }()
+    
+    @objc func updateClaimStatus(){
+        let alertController = UIAlertController(title: "Claim Plate?", message: "This palte will be reserved for you until the end of the day.", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes!", style: .default) { (action) in
+            FirestoreService.manager.updatePlateStatus(newStatus: true, plateID: self.plate!.plateID) { (result) in
+                       switch result {
+                       case .failure(let error):
+                           print(error)
+                       case .success():
+                           print("success")
+                           self.claimButton.isEnabled = false
+                          
+                       }
+                   }
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alertController.addAction(yesAction)
+        alertController.addAction(cancel)
+        present(alertController, animated: true)
+    }
     
   //MARK: LifeCycle Methods
   override func viewDidLoad() {
