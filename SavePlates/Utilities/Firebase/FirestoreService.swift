@@ -11,8 +11,8 @@ import FirebaseFirestore
 
 fileprivate enum FireStoreCollections: String {
     case users
-    case events
-    case arts
+    case plates
+    
 }
 
 enum SortingCriteria: String {
@@ -66,17 +66,17 @@ class FirestoreService {
         }
     }
     
-    func getAllUsers(completion: @escaping (Result<[AppUser], Error>) -> ()) {
-        db.collection(FireStoreCollections.users.rawValue).getDocuments { (snapshot, error) in
+    func getAllPlates(completion: @escaping (Result<[Plate], Error>) -> ()) {
+        db.collection(FireStoreCollections.plates.rawValue).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else {
-                let users = snapshot?.documents.compactMap({ (snapshot) -> AppUser? in
-                    let userID = snapshot.documentID
-                    let user = AppUser(from: snapshot.data(), id: userID)
-                    return user
+                let plates = snapshot?.documents.compactMap({ (snapshot) -> Plate? in
+                    let plateID = snapshot.documentID
+                    let plate = Plate(from: snapshot.data(), id: plateID)
+                    return plate
                 })
-                completion(.success(users ?? []))
+                completion(.success(plates ?? []))
             }
         }
     }
@@ -93,19 +93,20 @@ class FirestoreService {
 //        }
 //    }
 //
-//    func getAllEvents(sortingCriteria: SortingCriteria? = nil, completion: @escaping (Result <[FavoriteEvent], Error>) -> ()) {
+//    func getAllPlates(sortingCriteria: SortingCriteria? = nil, completion: @escaping (Result <[Plate], Error>) -> ()) {
 //        let completionHandler: FIRQuerySnapshotBlock = {(snapshot, error) in
 //            if let error = error {
 //                completion(.failure(error))
 //            } else {
-//                let events = snapshot?.documents.compactMap({ (snapshot) -> FavoriteEvent? in
-//                    let eventID = snapshot.documentID
-//                    let event = FavoriteEvent(from: snapshot.data(), id: eventID)
-//                    return event
+//                let plates = snapshot?.documents.compactMap({ (snapshot) -> Plate? in
+//                    let plateID = snapshot.documentID
+//                    let plate = Plate(from: snapshot.data(), id: plateID)
+//                    return plate
 //                })
-//                completion(.success(events ?? []))
+//                completion(.success(plates ?? []))
 //            }
 //        }
+//    }
 //
 //        let collection = db.collection(FireStoreCollections.events.rawValue)
 //        if let sortingCriteria = sortingCriteria {
