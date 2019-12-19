@@ -67,6 +67,15 @@ class PlateDetailViewController: UIViewController {
            return button
        }()
     
+  //MARK: LifeCycle Methods
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .white
+    setUpVC()
+    // Do any additional setup after loading the view.
+  }
+     
+  
     //MARK: Constraint Methods
     private func setUpVC(){
         constrainPlateImage()
@@ -119,14 +128,4 @@ class PlateDetailViewController: UIViewController {
             claimButton.heightAnchor.constraint(equalToConstant: 60), claimButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             claimButton.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 30)])
     }
-    
-    //MARK: LifeCycle Methods
-    override func viewDidLoad() {
-        view.backgroundColor = .white
-        setUpVC()
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    
-   
 }
