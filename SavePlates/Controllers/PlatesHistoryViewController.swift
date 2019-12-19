@@ -24,21 +24,47 @@ class PlatesHistoryViewController: UIViewController {
         return tableView
     }()
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        constraintPlatesList()
-        loadPlates()
-        historyList.backgroundColor = .white
-        ColorScheme.setUpBackgroundColor(view)
-        navigationController?.navigationBar.isHidden = true
-        // Do any additional setup after loading the view.
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setupNavigationBar()
+    constraintPlatesList()
+    loadPlates()
+    ColorScheme.setUpBackgroundColor(historyList)
+    ColorScheme.setUpBackgroundColor(view)
+    // Do any additional setup after loading the view.
+  }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         loadPlates()
     }
     
+  private func setupNavigationBar() {
+    self.navigationItem.title = "Claimed Plates"
+    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action: #selector(signOut))
+  }
+  
+  @objc private func signOut() {
+    let alert = UIAlertController(title: "Log Out?", message: nil, preferredStyle: .actionSheet)
+    let action = UIAlertAction.init(title: "Yup!", style: .destructive, handler: .some({ (action) in
+      DispatchQueue.main.async {
+        FirebaseAuthService.manager.logoutUser()
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+          let sceneDelegate = windowScene.delegate as? SceneDelegate, let window = sceneDelegate.window
+          else {
+            return
+        }
+        UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromBottom, animations: {
+          window.rootViewController = LoginViewController()
+        }, completion: nil)
+      }
+    }))
+    let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    alert.addAction(action)
+    alert.addAction(cancel)
+    present(alert, animated:true)
+  }
+  
     private func loadPlates(){
         FirestoreService.manager.getUserPlates(userID: FirebaseAuthService.manager.currentUser!.uid) { (result) in
             DispatchQueue.main.async {
@@ -95,11 +121,13 @@ extension PlatesHistoryViewController: UITableViewDataSource {
     case false:
         cell.backgroundColor = .green
     }
+    
     cell.cellImage.image = UIImage(named: "NoImage")
     cell.businessName.text = plate.restaurant
     cell.foodItem.text = plate.description
-    let price = plate.originalPrice * plate.discount
-    cell.itemPrice.text = "$\(price.rounded())"
+    let myDouble = plate.originalPrice * plate.discount
+    let doubleStr = String(format: "%.2f", ceil(myDouble*100)/100)
+    cell.itemPrice.text = "$\(doubleStr)"
     FirebaseStorageService.manager.getImage(url: plate.imageURL) { (result) in
         DispatchQueue.main.async {
             switch result {
