@@ -108,7 +108,7 @@ extension SearchPlatesViewController: UITableViewDataSource {
         
         cell.businessName.text = plate.restaurant
         cell.foodItem.text = plate.description
-        cell.itemPrice.text = "\(plate.originalPrice)"
+        cell.itemPrice.text = "$\(plate.originalPrice)"
         
         FirebaseStorageService.manager.getImage(url: plate.imageURL) { (result) in
             DispatchQueue.main.async {

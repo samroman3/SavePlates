@@ -20,18 +20,24 @@ class PlatesCell: UITableViewCell {
     lazy var businessName: UILabel = {
         let label = UILabel()
         label.text = "Business Name"
+        label.font = label.font.withSize(14)
+        label.textAlignment = .left
         return label
     }()
     
     lazy var foodItem: UILabel = {
         let label = UILabel()
         label.text = "Food Item"
+        label.font = label.font.withSize(16)
+        label.textAlignment = .left
         return label
     }()
     
     lazy var itemPrice: UILabel = {
         let label = UILabel()
         label.text = "Item Price $"
+        label.font = label.font.withSize(13)
+        label.textAlignment = .left
         return label
     }()
 
@@ -48,7 +54,7 @@ class PlatesCell: UITableViewCell {
     }
     
     private func constraintLabels() {
-        let stackView = UIStackView(arrangedSubviews: [businessName, foodItem, itemPrice])
+        let stackView = UIStackView(arrangedSubviews: [foodItem, businessName, itemPrice])
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         stackView.spacing = 2
@@ -58,7 +64,7 @@ class PlatesCell: UITableViewCell {
             stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
             stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: 10),
 //            stackView.leadingAnchor.constraint(equalTo: cellImage.trailingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor)])
+            stackView.leadingAnchor.constraint(equalTo: cellImage.trailingAnchor, constant: 30)])
     }
     
     //MARK: - Override Methods
@@ -74,8 +80,9 @@ class PlatesCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: "PlatesCell")
-        constraintLabels()
         constraintImageView()
+        constraintLabels()
+        
     }
     
     required init?(coder: NSCoder) {
