@@ -16,24 +16,17 @@ class LoginViewController: UIViewController {
 
     lazy var logoLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 0
+        ColorScheme.styleHeaderLabel(label)
         label.font = UIFont(name: "Trebuchet MS", size: 100)
-        let attributedTitle = NSMutableAttributedString(string: "SavePlates", attributes: [NSAttributedString.Key.font: UIFont(name: "Trebuchet MS", size: 60)!, NSAttributedString.Key.foregroundColor: UIColor.black])
+        let attributedTitle = NSMutableAttributedString(string: "Save Plates", attributes: [NSAttributedString.Key.font: UIFont(name: "Trebuchet MS", size: 80)!])
         label.attributedText = attributedTitle
-        label.backgroundColor = .clear
-        label.textAlignment = .center
         return label
     }()
 
     lazy var emailTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = " Enter Email..."
-        textField.autocorrectionType = .no
-        textField.textAlignment = .left
-        textField.layer.cornerRadius = 15
-        textField.backgroundColor = .clear
-        textField.textColor = .black
-        textField.borderStyle = .roundedRect
+        ColorScheme.styleTextField(textField)
         textField.addTarget(self, action: #selector(validateFields), for: .editingChanged)
         textField.delegate = self
         return textField
@@ -41,14 +34,9 @@ class LoginViewController: UIViewController {
 
     lazy var passwordTextField: UITextField = {
         let textField = UITextField()
+        ColorScheme.styleTextField(textField)
         textField.placeholder = " Enter Password..."
-        textField.autocorrectionType = .no
-        textField.textAlignment = .left
         textField.isSecureTextEntry = true
-        textField.layer.cornerRadius = 15
-        textField.backgroundColor = .clear
-        textField.textColor = .black
-        textField.borderStyle = .roundedRect
         textField.addTarget(self, action: #selector(validateFields), for: .editingChanged)
         textField.delegate = self
         return textField
@@ -58,7 +46,7 @@ class LoginViewController: UIViewController {
     lazy var emailIcon: UIImageView = {
         let icon = UIImageView()
         icon.image = UIImage(systemName: "at", withConfiguration: .none)
-        icon.tintColor = .lightGray
+        icon.tintColor = .white
         icon.backgroundColor = .clear
         return icon
     }()
@@ -66,17 +54,17 @@ class LoginViewController: UIViewController {
     lazy var passwordIcon: UIImageView = {
         let icon = UIImageView()
         icon.image = UIImage(systemName: "lock.circle", withConfiguration: .none)
-        icon.tintColor = .lightGray
+        icon.tintColor = .white
         icon.backgroundColor = .clear
         return icon
     }()
 
     lazy var loginButton: UIButton = {
         let button = UIButton()
+        ColorScheme.styleHollowButton(button)
         button.setTitle("Login", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = button.titleLabel?.font.withSize(34)
-        button.backgroundColor = .cyan
         button.addTarget(self, action: #selector(tryLogin), for: .touchUpInside)
         button.isEnabled = false
         return button
@@ -97,16 +85,10 @@ class LoginViewController: UIViewController {
     }()
 
 
-
-
-
-
-
     override func viewDidLoad() {
-        view.backgroundColor = .white
-        setUpConstraints()
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        ColorScheme.setUpBackgroundColor(view)
+        setUpConstraints()
     }
 
     //MARK: Private Methods
@@ -129,8 +111,7 @@ class LoginViewController: UIViewController {
             return
         }
         loginButton.isEnabled = true
-        emailIcon.tintColor = .cyan
-        passwordIcon.tintColor = .cyan
+
     }
 
 
@@ -243,9 +224,9 @@ class LoginViewController: UIViewController {
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30), loginButton.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30), loginButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -25),
             loginButton.heightAnchor.constraint(equalToConstant: 70),
-            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor)])
+            loginButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 25)])
         view.layoutIfNeeded()
 
     }

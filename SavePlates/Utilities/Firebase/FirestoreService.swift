@@ -12,6 +12,7 @@ import FirebaseFirestore
 fileprivate enum FireStoreCollections: String {
     case users
     case plates
+    case userplates
     
 }
 
@@ -44,27 +45,31 @@ class FirestoreService {
         }
     }
     
-    func updateCurrentUser(userExperience: String? = nil, completion: @escaping (Result <(), Error>) -> ()) {
+    func updatePlateStatus(newStatus: Bool?, plateID: String, completion: @escaping (Result <(), Error>) -> ()) {
         guard let userID = FirebaseAuthService.manager.currentUser?.uid else {
             return
         }
-        
         var updateFields = [String : Any]()
-        if let experience = userExperience {
-            updateFields["userExperience"] = experience
+        if let status = newStatus {
+            updateFields["claimStatus"] = status
+            updateFields["userID"] = userID
         }
+
         
-        
-        
-        //        PUT request
-        db.collection(FireStoreCollections.users.rawValue).document(userID).updateData(updateFields) { (error) in
-            if let error = error {
-                completion(.failure(error))
+        let plate = db.collection("plates").document(plateID)
+
+        plate.updateData(updateFields) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
             } else {
-                completion(.success(()))
+                print("Document successfully updated")
             }
         }
-    }
+        
+            
+        }
+
+    
     
     func getAllPlates(completion: @escaping (Result<[Plate], Error>) -> ()) {
         db.collection(FireStoreCollections.plates.rawValue).getDocuments { (snapshot, error) in
@@ -74,6 +79,7 @@ class FirestoreService {
                 let plates = snapshot?.documents.compactMap({ (snapshot) -> Plate? in
                     let plateID = snapshot.documentID
                     let plate = Plate(from: snapshot.data(), id: plateID)
+                    
                     return plate
                 })
                 completion(.success(plates ?? []))
@@ -117,22 +123,22 @@ class FirestoreService {
 //        }
 //    }
 //
-//    func getEvents(forUserID: String, completion: @escaping (Result <[FavoriteEvent], Error>) -> ()) {
-//
-//
-//        db.collection(FireStoreCollections.events.rawValue).whereField("creatorID", isEqualTo: forUserID).getDocuments { (snapshot, error) in
-//            if let error = error {
-//                completion(.failure(error))
-//            } else {
-//                let events = snapshot?.documents.compactMap({ (snapshot) -> FavoriteEvent? in
-//                    let eventID = snapshot.documentID
-//                    let event = FavoriteEvent(from: snapshot.data(), id: eventID)
-//                    return event
-//                })
-//                completion(.success(events ?? []))
-//            }
-//        }
-//    }
+    func getAvailablePlates(claimStatus: Bool, completion: @escaping (Result <[Plate], Error>) -> ()) {
+
+
+        db.collection(FireStoreCollections.plates.rawValue).whereField("claimStatus", isEqualTo: claimStatus).getDocuments { (snapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                let events = snapshot?.documents.compactMap({ (snapshot) -> Plate? in
+                    let documentID = snapshot.documentID
+                    let event = Plate(from: snapshot.data(), id: documentID)
+                    return event
+                })
+                completion(.success(events ?? []))
+            }
+        }
+    }
 //
 //    func deleteFavoriteEvent(forUserID: String, eventID: String, completion: @escaping (Result <(), Error>) -> ()) {
 //
@@ -152,10 +158,10 @@ class FirestoreService {
 //
 ////    MARK: - Art collection
 //
-//    func saveArt(art: FavoriteArt, completion: @escaping (Result <(), Error>) -> ()){
-//        var fields = art.fieldsDict
+//    func savePlate(plate: Plate, completion: @escaping (Result <(), Error>) -> ()){
+//        var fields = plate.fieldsDict
 //        fields["dateCreated"] = Date()
-//        db.collection(FireStoreCollections.arts.rawValue).addDocument(data: fields) { (error) in
+//        db.collection(FireStoreCollections.userplates.rawValue).addDocument(data: fields) { (error) in
 //            if let error = error {
 //                completion(.failure(error))
 //            } else {
