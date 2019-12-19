@@ -11,8 +11,9 @@ import FirebaseFirestore
 
 fileprivate enum FireStoreCollections: String {
     case users
-    case events
-    case arts
+    case plates
+    case userplates
+    
 }
 
 enum SortingCriteria: String {
@@ -44,39 +45,44 @@ class FirestoreService {
         }
     }
     
-    func updateCurrentUser(userExperience: String? = nil, completion: @escaping (Result <(), Error>) -> ()) {
+    func updatePlateStatus(newStatus: Bool?, plateID: String, completion: @escaping (Result <(), Error>) -> ()) {
         guard let userID = FirebaseAuthService.manager.currentUser?.uid else {
             return
         }
-        
         var updateFields = [String : Any]()
-        if let experience = userExperience {
-            updateFields["userExperience"] = experience
+        if let status = newStatus {
+            updateFields["claimStatus"] = status
+            updateFields["userID"] = userID
         }
+
         
-        
-        
-        //        PUT request
-        db.collection(FireStoreCollections.users.rawValue).document(userID).updateData(updateFields) { (error) in
-            if let error = error {
-                completion(.failure(error))
+        let plate = db.collection("plates").document(plateID)
+
+        plate.updateData(updateFields) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
             } else {
-                completion(.success(()))
+                print("Document successfully updated")
             }
         }
-    }
+        
+            
+        }
+
     
-    func getAllUsers(completion: @escaping (Result<[AppUser], Error>) -> ()) {
-        db.collection(FireStoreCollections.users.rawValue).getDocuments { (snapshot, error) in
+    
+    func getAllPlates(completion: @escaping (Result<[Plate], Error>) -> ()) {
+        db.collection(FireStoreCollections.plates.rawValue).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else {
-                let users = snapshot?.documents.compactMap({ (snapshot) -> AppUser? in
-                    let userID = snapshot.documentID
-                    let user = AppUser(from: snapshot.data(), id: userID)
-                    return user
+                let plates = snapshot?.documents.compactMap({ (snapshot) -> Plate? in
+                    let plateID = snapshot.documentID
+                    let plate = Plate(from: snapshot.data(), id: plateID)
+                    
+                    return plate
                 })
-                completion(.success(users ?? []))
+                completion(.success(plates ?? []))
             }
         }
     }
@@ -93,19 +99,20 @@ class FirestoreService {
 //        }
 //    }
 //
-//    func getAllEvents(sortingCriteria: SortingCriteria? = nil, completion: @escaping (Result <[FavoriteEvent], Error>) -> ()) {
+//    func getAllPlates(sortingCriteria: SortingCriteria? = nil, completion: @escaping (Result <[Plate], Error>) -> ()) {
 //        let completionHandler: FIRQuerySnapshotBlock = {(snapshot, error) in
 //            if let error = error {
 //                completion(.failure(error))
 //            } else {
-//                let events = snapshot?.documents.compactMap({ (snapshot) -> FavoriteEvent? in
-//                    let eventID = snapshot.documentID
-//                    let event = FavoriteEvent(from: snapshot.data(), id: eventID)
-//                    return event
+//                let plates = snapshot?.documents.compactMap({ (snapshot) -> Plate? in
+//                    let plateID = snapshot.documentID
+//                    let plate = Plate(from: snapshot.data(), id: plateID)
+//                    return plate
 //                })
-//                completion(.success(events ?? []))
+//                completion(.success(plates ?? []))
 //            }
 //        }
+//    }
 //
 //        let collection = db.collection(FireStoreCollections.events.rawValue)
 //        if let sortingCriteria = sortingCriteria {
@@ -151,17 +158,17 @@ class FirestoreService {
 //
 ////    MARK: - Art collection
 //
-//    func saveArt(art: FavoriteArt, completion: @escaping (Result <(), Error>) -> ()){
-//        var fields = art.fieldsDict
-//        fields["dateCreated"] = Date()
-//        db.collection(FireStoreCollections.arts.rawValue).addDocument(data: fields) { (error) in
-//            if let error = error {
-//                completion(.failure(error))
-//            } else {
-//                completion(.success(()))
-//            }
-//        }
-//    }
+    func savePlate(plate: Plate, completion: @escaping (Result <(), Error>) -> ()){
+        var fields = plate.fieldsDict
+        fields["dateCreated"] = Date()
+        db.collection(FireStoreCollections.userplates.rawValue).addDocument(data: fields) { (error) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
 //
 //    func getAllArts(sortingCriteria: SortingCriteria? = nil, completion: @escaping (Result <[FavoriteArt], Error>) -> ()) {
 //        let completionHandler: FIRQuerySnapshotBlock = {(snapshot, error) in

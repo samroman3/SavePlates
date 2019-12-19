@@ -10,13 +10,13 @@ import UIKit
 
 class FoodTypePickerViewController: UIViewController {
     
+  
     //MARK: Internal Properties
     var pickerData = ["Chicken", "Beef", "Vegan", "Baked Goods"]
     var keywordHolder = "ChickenAgain"
     
     // MARK: UI Elements
     lazy var foodPicker: UIPickerView = {
-        
         let picker = UIPickerView()
         picker.delegate = self
         picker.dataSource = self

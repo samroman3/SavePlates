@@ -2,10 +2,9 @@
 //  Restaurant.swift
 //  SavePlates
 //
-//  Created by Levi Davis on 12/18/19.
+//  Created by Sam Roman on 12/18/19.
 //  Copyright © 2019 Sam Roman. All rights reserved.
 //
-
 import Foundation
 import FirebaseFirestore
 

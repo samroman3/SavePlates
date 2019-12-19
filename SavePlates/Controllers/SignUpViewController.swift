@@ -1,21 +1,19 @@
 //
-//  SIgnUpViewController.swift
+//  SignUpViewController.swift
 //  SavePlates
 //
 //  Created by Sam Roman on 12/18/19.
 //  Copyright © 2019 Sam Roman. All rights reserved.
 //
 
+
 import UIKit
 import FirebaseAuth
-
 class SignUpViewController: UIViewController {
-
     override func viewDidLoad() {
         view.backgroundColor = .white
         setUpConstraints()
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     
     }
@@ -58,7 +56,6 @@ class SignUpViewController: UIViewController {
         textField.borderStyle = .roundedRect
         textField.addTarget(self, action: #selector(validateFields), for: .editingChanged)
         textField.delegate = self
-
         return textField
     }()
     
@@ -90,7 +87,6 @@ class SignUpViewController: UIViewController {
         icon.backgroundColor = .clear
         return icon
     }()
-
     
     lazy var alreadyHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
@@ -126,13 +122,11 @@ class SignUpViewController: UIViewController {
     
     @objc func trySignUp() {
            guard let email = emailTextField.text, let password = passwordTextField.text else {
-
                showAlert(with: "Error", and: "Please fill out all fields.")
                return
            }
            
            guard email.isValidEmail else {
-
                showAlert(with: "Error", and: "Please enter a valid email")
                return
            }
@@ -174,7 +168,7 @@ class SignUpViewController: UIViewController {
                //MARK: TODO - refactor this logic into scene delegate
                UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromBottom, animations: {
                        window.rootViewController = {
-                           let mainVC = FoodTypePickerViewController()
+                           let mainVC = MainScreenTabBarViewController()
                            return mainVC
                        }()
                }, completion: nil)
@@ -186,7 +180,6 @@ class SignUpViewController: UIViewController {
     @objc func showLogIn() {
         dismiss(animated: true, completion: nil)
     }
-
     @objc func validateFields() {
               guard emailTextField.hasText, passwordTextField.hasText else {
                   signUpButton.isEnabled = false
@@ -197,7 +190,6 @@ class SignUpViewController: UIViewController {
            passwordIcon.tintColor = .systemBlue
           }
     
-
     
     //MARK: UI Setup
     
@@ -277,9 +269,7 @@ class SignUpViewController: UIViewController {
        
     
     
-
 }
-
 extension SignUpViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
