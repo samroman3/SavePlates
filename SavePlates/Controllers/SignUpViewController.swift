@@ -209,7 +209,7 @@ class SignUpViewController: UIViewController {
               view.addSubview(logoLabel)
               
               logoLabel.translatesAutoresizingMaskIntoConstraints = false
-              NSLayoutConstraint.activate([logoLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 60), logoLabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 16), logoLabel.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -16)])
+              NSLayoutConstraint.activate([logoLabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 20), logoLabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 16), logoLabel.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -16)])
           }
     
      private func setupLoginStackView() {
@@ -220,7 +220,7 @@ class SignUpViewController: UIViewController {
            self.view.addSubview(stackView)
            
            stackView.translatesAutoresizingMaskIntoConstraints = false
-           NSLayoutConstraint.activate([stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -400),
+           NSLayoutConstraint.activate([stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300),
                                         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
                                         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
                                         stackView.heightAnchor.constraint(equalToConstant: 100)])

@@ -87,7 +87,7 @@ class PlateDetailViewController: UIViewController {
        }()
     
     @objc func updateClaimStatus(){
-        let alertController = UIAlertController(title: "Claim Plate?", message: "This palte will be reserved for you until the end of the day.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Claim Plate?", message: "This plate will be reserved for you until the end of the day.", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Yes!", style: .default) { (action) in
             FirestoreService.manager.updatePlateStatus(newStatus: true, plateID: self.plate!.plateID) { (result) in
                        switch result {
@@ -97,6 +97,7 @@ class PlateDetailViewController: UIViewController {
                            print("success")
                            self.claimButton.isEnabled = false
                            self.navigationController?.popViewController(animated: true)
+                           self.dismiss(animated: true, completion: nil)
                        }
                    }
         }

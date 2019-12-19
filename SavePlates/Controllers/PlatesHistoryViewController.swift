@@ -119,7 +119,7 @@ extension PlatesHistoryViewController: UITableViewDataSource {
     case true:
         cell.backgroundColor = .gray
     case false:
-        cell.backgroundColor = .green
+        cell.backgroundColor = .white
     }
     
     cell.cellImage.image = UIImage(named: "NoImage")
